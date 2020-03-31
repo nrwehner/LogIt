@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.WebMVC", "LogIt.WebMV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.Data", "LogIt.Data\LogIt.Data.csproj", "{6117F921-F280-48AF-B0E6-DFD3AA164CE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.Models", "LogIt.Models\LogIt.Models.csproj", "{0505D13A-BDEB-41F8-BEEB-89B2EB271DDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.Services", "LogIt.Services\LogIt.Services.csproj", "{89B15D05-7D4C-4542-BB80-68B7E9211410}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6117F921-F280-48AF-B0E6-DFD3AA164CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6117F921-F280-48AF-B0E6-DFD3AA164CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6117F921-F280-48AF-B0E6-DFD3AA164CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0505D13A-BDEB-41F8-BEEB-89B2EB271DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0505D13A-BDEB-41F8-BEEB-89B2EB271DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0505D13A-BDEB-41F8-BEEB-89B2EB271DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0505D13A-BDEB-41F8-BEEB-89B2EB271DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B15D05-7D4C-4542-BB80-68B7E9211410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B15D05-7D4C-4542-BB80-68B7E9211410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B15D05-7D4C-4542-BB80-68B7E9211410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B15D05-7D4C-4542-BB80-68B7E9211410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

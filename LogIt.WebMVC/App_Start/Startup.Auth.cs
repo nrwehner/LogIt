@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using LogIt.WebMVC.Models;
+using LogIt.Data;
 
 namespace LogIt.WebMVC
 {

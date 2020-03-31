@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LogIt.WebMVC.Models;
+using LogIt.Data;
 
 namespace LogIt.WebMVC.Controllers
 {

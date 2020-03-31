@@ -12,9 +12,9 @@ namespace LogIt.Data
     {
         [Key]
         public int UserProfileId { get; set; }
-        [ForeignKey("UserId")]
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        [ForeignKey(nameof(ApplicationUser))]
+        public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ICollection<FoodDay> FoodDays { get; set; }
         [Required]
         [MaxLength(30, ErrorMessage = "The Title cannot exceed 30 characters.")]

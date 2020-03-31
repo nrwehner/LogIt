@@ -12,12 +12,12 @@ namespace LogIt.Data
     {
         [Key]
         public int FoodDayItemId { get; set; }
-        [ForeignKey("DayId")]
-        public string DayId { get; set; }
-        public virtual FoodDay Day { get; set; }
-        [ForeignKey("ItemId")]
-        public string ItemId { get; set; }
-        public virtual FoodItem Item { get; set; }
+        [ForeignKey(nameof(FoodDay))]
+        public int FoodDayId { get; set; }
+        public virtual FoodDay FoodDay { get; set; }
+        [ForeignKey(nameof(FoodItem))]
+        public int FoodItemId { get; set; }
+        public virtual FoodItem FoodItem { get; set; }
         [Required]
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }

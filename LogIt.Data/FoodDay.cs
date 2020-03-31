@@ -12,9 +12,9 @@ namespace LogIt.Data
     {
         [Key]
         public int FoodDayId { get; set; }
-        [ForeignKey("ProfileId")]
-        public string ProfileId { get; set; }
-        public virtual UserProfile Profile { get; set; }
+        [ForeignKey(nameof(UserProfile))]
+        public int UserProfileId { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
         public virtual ICollection<FoodDayItem> FoodDayItems { get; set; }
         [Required]
         public DateTime Date { get; set; }

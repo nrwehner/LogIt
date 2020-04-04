@@ -18,5 +18,23 @@ namespace LogIt.WebMVC.Controllers
             var model = new FoodItemListItem[0];
             return View(model);
         }
+
+        //GET : FoodItem/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //GET : FoodItem/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(FoodItemCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }

@@ -9,8 +9,12 @@ namespace LogIt.Models
 {
     public class FoodItemListItem
     {
+        [Display(Name = "Item Id")]
         public int FoodItemId { get; set; }
+        [Display(Name = "Item Name")]
         public string Name { get; set; }
+        [Display(Name = "Item Description")]
+        public string Description { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }

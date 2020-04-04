@@ -59,5 +59,8 @@ namespace LogIt.Services
 
                 return query.ToArray();
         }
+
+        // Maybe create a GET version for the food items the user has made
+
     }
 }

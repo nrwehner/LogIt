@@ -16,8 +16,7 @@ namespace LogIt.WebMVC.Controllers
         // GET: FoodItem
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var service = new FoodItemService(userId);
+            var service = CreateFoodItemService();
             var model = service.GetFoodItems();
 
             return View(model);
@@ -39,12 +38,24 @@ namespace LogIt.WebMVC.Controllers
                 return View(model);
             }
 
+            var service = CreateFoodItemService();
+
+            if (service.CreateFoodItem(model))
+            {
+                TempData["SaveResult"] = "Your food item was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your food item could not be created.");
+
+            return View(model);
+        }
+
+        private FoodItemService CreateFoodItemService()
+        {
             var userId = User.Identity.GetUserId();
             var service = new FoodItemService(userId);
-
-            service.CreateFoodItem(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

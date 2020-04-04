@@ -238,6 +238,7 @@
     <Content Include="Views\FoodItem\Index.cshtml" />
     <Content Include="Views\FoodItem\Create.cshtml" />
     <Content Include="Views\FoodItem\Details.cshtml" />
+    <Content Include="Views\FoodItem\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

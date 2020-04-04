@@ -54,9 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FoodItemCreate.cs" />
-    <Compile Include="FoodItemDetail.cs" />
-    <Compile Include="FoodItemListItem.cs" />
+    <Compile Include="FoodItem\FoodItemCreate.cs" />
+    <Compile Include="FoodItem\FoodItemDetail.cs" />
+    <Compile Include="FoodItem\FoodItemEdit.cs" />
+    <Compile Include="FoodItem\FoodItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

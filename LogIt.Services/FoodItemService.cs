@@ -1,5 +1,6 @@
 ﻿using LogIt.Data;
 using LogIt.Models;
+using LogIt.Models.FoodItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,5 +88,29 @@ namespace LogIt.Services
                     ModifiedUtc = entity.ModifiedUtc,
                 };
         }
+
+        public bool UpdateFoodItem(FoodItemEdit model)
+        {
+                var entity =
+                    _db
+                        .FoodItems
+                        .Single(e => e.FoodItemId == model.FoodItemId);
+
+            entity.Name = model.Name;
+            entity.Description = model.Description;
+            entity.Calories = model.Calories;
+            entity.CarbohydrateGrams = model.CarbohydrateGrams;
+            entity.FiberGrams = model.FiberGrams;
+            entity.FatGrams = model.FatGrams;
+            entity.ProteinGrams = model.ProteinGrams;
+            entity.SodiumMilligrams = model.SodiumMilligrams;
+            entity.PotassiumMilligrams = model.PotassiumMilligrams;
+            entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
+            entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+            return _db.SaveChanges() == 1;
+        }
+
+        // maybe a method to allow user to duplicate a food item
     }
 }

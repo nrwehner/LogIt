@@ -1,0 +1,136 @@
+﻿@model LogIt.Models.FoodItemDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Food Item</h2>
+
+<h3>Are you sure you want to delete this food item?</h3>
+<div>
+    <h4>FoodItemDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbohydrateGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbohydrateGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SodiumMilligrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumMilligrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumMilligrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumMilligrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

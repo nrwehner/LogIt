@@ -109,6 +109,29 @@ namespace LogIt.WebMVC.Controllers
             return View(model);
         }
 
+        //GET : FoodItem/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateFoodItemService();
+            var model = service.GetFoodItemById(id);
+
+            return View(model);
+        }
+
+        //GET : FoodItem/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateFoodItemService();
+            service.DeleteFoodItem(id);
+            TempData["SaveResult"] = "Your food item was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private FoodItemService CreateFoodItemService()
         {
             var userId = User.Identity.GetUserId();

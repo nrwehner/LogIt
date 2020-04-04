@@ -91,10 +91,10 @@ namespace LogIt.Services
 
         public bool UpdateFoodItem(FoodItemEdit model)
         {
-                var entity =
-                    _db
-                        .FoodItems
-                        .Single(e => e.FoodItemId == model.FoodItemId);
+            var entity =
+                _db
+                    .FoodItems
+                    .Single(e => e.FoodItemId == model.FoodItemId);
 
             entity.Name = model.Name;
             entity.Description = model.Description;
@@ -112,5 +112,17 @@ namespace LogIt.Services
         }
 
         // maybe a method to allow user to duplicate a food item
+
+        public bool DeleteFoodItem(int foodItemId)
+        {
+            var entity =
+                _db
+                    .FoodItems
+                    .Single(e => e.FoodItemId == foodItemId);
+
+            _db.FoodItems.Remove(entity);
+
+            return _db.SaveChanges() == 1;
+        }
     }
 }

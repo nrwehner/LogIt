@@ -239,6 +239,8 @@
     <Content Include="Views\FoodItem\Create.cshtml" />
     <Content Include="Views\FoodItem\Details.cshtml" />
     <Content Include="Views\FoodItem\Edit.cshtml" />
+    <Content Include="Views\FoodItem\Delete.cshtml" />
+    <Content Include="Views\Shared\Display Templates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

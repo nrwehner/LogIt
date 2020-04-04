@@ -29,6 +29,8 @@ namespace LogIt.Models
         public int SodiumMilligrams { get; set; }
         [Display(Name = "Mgs Of Potassium")]
         public int PotassiumMilligrams { get; set; }
+        [UIHint("Starred")]
+        public bool IsStarred { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created Date")]

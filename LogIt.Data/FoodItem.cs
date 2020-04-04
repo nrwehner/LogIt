@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,8 @@ namespace LogIt.Data
         [Range(0, 15000, ErrorMessage = "please choose a whole number between 0 and 15,000")]
         [Display(Name = "Mgs Of Potassium")]
         public int PotassiumMilligrams { get; set; }
+        [DefaultValue(false)]
+        public bool IsStarred { get; set; }
         [Required]
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }

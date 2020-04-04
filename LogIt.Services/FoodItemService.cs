@@ -53,6 +53,7 @@ namespace LogIt.Services
                                 FoodItemId = e.FoodItemId,
                                 Name = e.Name,
                                 Description = e.Description,
+                                IsStarred = e.IsStarred,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc
                             }
@@ -82,6 +83,7 @@ namespace LogIt.Services
                     ProteinGrams = entity.ProteinGrams,
                     SodiumMilligrams = entity.SodiumMilligrams,
                     PotassiumMilligrams = entity.PotassiumMilligrams,
+                    IsStarred = entity.IsStarred,
                     CreatedBy = entity.CreatedBy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedBy = entity.ModifiedBy,

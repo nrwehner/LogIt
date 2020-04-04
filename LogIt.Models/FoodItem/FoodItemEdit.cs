@@ -28,5 +28,6 @@ namespace LogIt.Models.FoodItem
         public int SodiumMilligrams { get; set; }
         [Display(Name = "Mgs Of Potassium")]
         public int PotassiumMilligrams { get; set; }
+        public bool IsStarred { get; set; }
     }
 }

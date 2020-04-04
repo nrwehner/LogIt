@@ -30,6 +30,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
         </th>
@@ -51,6 +54,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
+            @*<th>
+                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.FoodItemId })
+            </th>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedBy)
             </td>
@@ -58,11 +64,38 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.FoodItemId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.FoodItemId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.FoodItemId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.FoodItemId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FoodItemId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FoodItemId })
             </td>
         </tr>
     }
 
 </table>
+
+@section scripts {
+    <script language="javascript" type="text/javascript">
+     $(document).ready(function () {
+         $("i[data-toggle='star']")
+             .css({ "cursor": "pointer" })
+             .click(function (e) {
+                 var target = $(e.target);
+                 var noteId = target.attr("data-id");
+                 var starSet = target.hasClass("glyphicon-star");
+
+                 $.ajax({
+                     method: starSet ? "DELETE" : "PUT",
+                     url: "/api/note/" + noteId + "/star",
+                     data: null
+                 })
+                 .done(function (r) {
+                     target.removeClass();
+                     target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                 })
+                 .fail(function (r) {
+                     alert("Failed to change star status");
+                 });
+             });
+     });
+    </script>
+}

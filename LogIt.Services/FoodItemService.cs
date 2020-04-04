@@ -36,31 +36,56 @@ namespace LogIt.Services
                     CreatedUtc = DateTimeOffset.Now
                 };
 
-                _db.FoodItems.Add(entity);
-                return _db.SaveChanges() == 1;
+            _db.FoodItems.Add(entity);
+            return _db.SaveChanges() == 1;
         }
 
         public IEnumerable<FoodItemListItem> GetFoodItems()
         {
-                var query =
-                    _db
-                        .FoodItems
-                        .Select(
-                            e =>
-                                new FoodItemListItem
-                                {
-                                    FoodItemId = e.FoodItemId,
-                                    Name = e.Name,
-                                    Description = e.Description,
-                                    CreatedBy = e.CreatedBy,
-                                    CreatedUtc = e.CreatedUtc
-                                }
-                        );
+            var query =
+                _db
+                    .FoodItems
+                    .Select(
+                        e =>
+                            new FoodItemListItem
+                            {
+                                FoodItemId = e.FoodItemId,
+                                Name = e.Name,
+                                Description = e.Description,
+                                CreatedBy = e.CreatedBy,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                    );
 
-                return query.ToArray();
+            return query.ToArray();
         }
 
         // Maybe create a GET version for the food items the user has made
 
+        public FoodItemDetail GetFoodItemById(int id)
+        {
+            var entity =
+                _db
+                    .FoodItems
+                    .Single(e => e.FoodItemId == id);
+            return
+                new FoodItemDetail
+                {
+                    FoodItemId = entity.FoodItemId,
+                    Name = entity.Name,
+                    Description = entity.Description,
+                    Calories = entity.Calories,
+                    CarbohydrateGrams = entity.CarbohydrateGrams,
+                    FiberGrams = entity.FiberGrams,
+                    FatGrams = entity.FatGrams,
+                    ProteinGrams = entity.ProteinGrams,
+                    SodiumMilligrams = entity.SodiumMilligrams,
+                    PotassiumMilligrams = entity.PotassiumMilligrams,
+                    CreatedBy = entity.CreatedBy,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedBy = entity.ModifiedBy,
+                    ModifiedUtc = entity.ModifiedUtc,
+                };
+        }
     }
 }

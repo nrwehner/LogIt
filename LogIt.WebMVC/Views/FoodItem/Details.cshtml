@@ -1,0 +1,132 @@
+﻿@model LogIt.Models.FoodItemDetail
+@*// how can the edit at the bottom work if the model is FoodItemDetail and not FoodItem? How does it know to edit FoodItem?*@
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Food Item Details</h2>
+
+<div>
+    <h4>FoodItemDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbohydrateGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbohydrateGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinGrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinGrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SodiumMilligrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumMilligrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumMilligrams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumMilligrams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*//maybe a an if statement here to only display edit if you created it, and also a duplicate option?*@
+@Html.ActionLink("Edit", "Edit", new { id = Model.FoodItemId }) |
+@Html.ActionLink("Back to List", "Index")
+</p>

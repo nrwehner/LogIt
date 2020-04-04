@@ -51,6 +51,14 @@ namespace LogIt.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var service = CreateFoodItemService();
+            var model = service.GetFoodItemById(id);
+
+            return View(model);
+        }
+
         private FoodItemService CreateFoodItemService()
         {
             var userId = User.Identity.GetUserId();

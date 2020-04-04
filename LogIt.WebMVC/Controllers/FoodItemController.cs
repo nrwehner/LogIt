@@ -1,5 +1,7 @@
 ﻿using LogIt.Data;
 using LogIt.Models;
+using LogIt.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,13 @@ namespace LogIt.WebMVC.Controllers
     [Authorize]
     public class FoodItemController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: FoodItem
         public ActionResult Index()
         {
-            var model = new FoodItemListItem[0];
+            var userId = User.Identity.GetUserId();
+            var service = new FoodItemService(userId);
+            var model = service.GetFoodItems();
+
             return View(model);
         }
 
@@ -30,11 +34,17 @@ namespace LogIt.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FoodItemCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = User.Identity.GetUserId();
+            var service = new FoodItemService(userId);
+
+            service.CreateFoodItem(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

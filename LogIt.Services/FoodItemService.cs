@@ -1,0 +1,63 @@
+﻿using LogIt.Data;
+using LogIt.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LogIt.Services
+{
+    public class FoodItemService
+    {
+        private ApplicationDbContext _db = new ApplicationDbContext();
+        private readonly string _userId;
+
+        public FoodItemService(string userId)
+        {
+            _userId = userId;
+        }
+
+        public bool CreateFoodItem(FoodItemCreate model)
+        {
+            var entity =
+                new FoodItem()
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    Calories = model.Calories,
+                    CarbohydrateGrams = model.CarbohydrateGrams,
+                    FatGrams = model.FatGrams,
+                    FiberGrams = model.FiberGrams,
+                    ProteinGrams = model.ProteinGrams,
+                    SodiumMilligrams = model.SodiumMilligrams,
+                    PotassiumMilligrams = model.PotassiumMilligrams,
+                    CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
+                    CreatedUtc = DateTimeOffset.Now
+                };
+
+                _db.FoodItems.Add(entity);
+                return _db.SaveChanges() == 1;
+        }
+
+        public IEnumerable<FoodItemListItem> GetFoodItems()
+        {
+                var query =
+                    _db
+                        .FoodItems
+                        .Select(
+                            e =>
+                                new FoodItemListItem
+                                {
+                                    FoodItemId = e.FoodItemId,
+                                    Name = e.Name,
+                                    Description = e.Description,
+                                    CreatedBy = e.CreatedBy,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+        }
+    }
+}

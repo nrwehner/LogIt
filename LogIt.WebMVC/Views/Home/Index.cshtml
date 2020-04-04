@@ -5,7 +5,7 @@
 <div class="jumbotron">
     <h1>LOGIT</h1>
     <p class="lead">LOGIT is food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="" class="btn btn-primary btn-lg">Learn more (do i want to create a landing page for this with more info?) &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -14,16 +14,16 @@
         <p>
             Join today and begin your food awareness journey!
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Register &raquo;</a></p>
+        <p>@Html.ActionLink("Register", "Index", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
     <div class="col-md-4">
         <h2>Explore/Add Food Items</h2>
         <p>See what food items are currently available to log, research your favorite foods, and add the nutritional information right in this app to begin using them in your food plans!</p>
-        <p>@Html.ActionLink("Food Items", "Index", "FoodItem")</p>
+        <p>@Html.ActionLink("Food Items", "Index", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
     <div class="col-md-4">
         <h2>Plan Your Day</h2>
         <p>Plan out what you will eat today, and beyond!</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Plan &raquo;</a></p>
+        <p>@Html.ActionLink("Plan", "Index", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
 </div>

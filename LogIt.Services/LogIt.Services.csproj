@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogIt.Data\LogIt.Data.csproj">
+      <Project>{6117f921-f280-48af-b0e6-dfd3aa164ce1}</Project>
+      <Name>LogIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogIt.Models\LogIt.Models.csproj">
+      <Project>{0505d13a-bdeb-41f8-beeb-89b2eb271ddc}</Project>
+      <Name>LogIt.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

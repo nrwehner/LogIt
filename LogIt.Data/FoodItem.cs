@@ -53,7 +53,6 @@ namespace LogIt.Data
         [Required]
         [Display(Name = "Created Date")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required]
         [Display(Name = "Modified By")]
         public string ModifiedBy { get; set; }
         [Display(Name = "Modified Date")]

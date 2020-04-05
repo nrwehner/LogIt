@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogIt.Data
+namespace LogIt.Models.UserProfile
 {
-    public class UserProfile
+    public class UserProfileCreate
     {
-        [Key]
-        public int UserProfileId { get; set; }
-        [ForeignKey(nameof(ApplicationUser))]
-        public string Id { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
-        public virtual ICollection<FoodDay> FoodDays { get; set; }
         [Required]
         [MaxLength(30, ErrorMessage = "The Title cannot exceed 30 characters.")]
         public string Title { get; set; }
@@ -51,17 +43,5 @@ namespace LogIt.Data
         [Range(0, 15000, ErrorMessage = "please choose a whole number between 0 and 15,000")]
         [Display(Name = "Potassium Target")]
         public int PotassiumTarget { get; set; }
-        [DefaultValue(false)]
-        public bool IsStarred { get; set; }
-        [Required]
-        [Display(Name = "Created By")]
-        public string CreatedBy { get; set; }
-        [Required]
-        [Display(Name = "Created Date")]
-        public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified By")]
-        public string ModifiedBy { get; set; }
-        [Display(Name = "Modified Date")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

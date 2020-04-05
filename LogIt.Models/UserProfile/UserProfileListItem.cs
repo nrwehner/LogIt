@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogIt.Models
+namespace LogIt.Models.UserProfile
 {
-    public class FoodItemListItem
+    public class UserProfileListItem
     {
-        [Display(Name = "Profile Id")]
-        public int FoodItemId { get; set; }
-        [Display(Name = "Item Name")]
-        public string Name { get; set; }
-        [Display(Name = "Item Description")]
+        [Display(Name = "Item Id")]
+        public int UserProfileId { get; set; }
+        [Display(Name = "Profile Title")]
+        public string Title { get; set; }
+        [Display(Name = "Profile Description")]
         public string Description { get; set; }
         [UIHint("Starred")]
         public bool IsStarred { get; set; }

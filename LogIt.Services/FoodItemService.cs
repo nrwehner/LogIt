@@ -107,6 +107,7 @@ namespace LogIt.Services
             entity.ProteinGrams = model.ProteinGrams;
             entity.SodiumMilligrams = model.SodiumMilligrams;
             entity.PotassiumMilligrams = model.PotassiumMilligrams;
+            entity.IsStarred = model.IsStarred;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

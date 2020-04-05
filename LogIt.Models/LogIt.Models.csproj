@@ -71,6 +71,10 @@
     <Compile Include="FoodItem\FoodItemEdit.cs" />
     <Compile Include="FoodItem\FoodItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfile\UserProfileCreate.cs" />
+    <Compile Include="UserProfile\UserProfileDetail.cs" />
+    <Compile Include="UserProfile\UserProfileEdit.cs" />
+    <Compile Include="UserProfile\UserProfileListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

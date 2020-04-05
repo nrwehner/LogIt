@@ -65,6 +65,8 @@ namespace LogIt.Services
 
         // Maybe create a GET version for the profiles pther users have made - that you can't delete or edit but you can replicate
         //- or a small library of suggested profiles that can be duplicated
+        // maybe also allow a null profile - so that the user can just track baseline food data and not necessary
+        // track against a goal
 
         public UserProfileDetail GetUserProfileById(int id)
         {

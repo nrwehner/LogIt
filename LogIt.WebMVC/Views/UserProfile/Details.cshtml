@@ -1,0 +1,148 @@
+﻿@model LogIt.Models.UserProfile.UserProfileDetail
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Goal Profile Details</h2>
+
+<div>
+    <h4>UserProfileDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserProfileId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaloryTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaloryTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SodiumTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumTarget)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsStarred)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*//maybe a an if statement here to only display edit if you created it, and also a duplicate option?*@
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserProfileId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

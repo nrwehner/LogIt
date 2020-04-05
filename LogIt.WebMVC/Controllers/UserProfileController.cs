@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace LogIt.WebMVC.Controllers
 {
+    [Authorize]
     public class UserProfileController : Controller
     {
         // GET: UserProfile

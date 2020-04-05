@@ -66,6 +66,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodDay\FoodDayCreate.cs" />
+    <Compile Include="FoodDay\FoodDayDetail.cs" />
+    <Compile Include="FoodDay\FoodDayEdit.cs" />
+    <Compile Include="FoodDay\FoodDayListItem.cs" />
     <Compile Include="FoodItem\FoodItemCreate.cs" />
     <Compile Include="FoodItem\FoodItemDetail.cs" />
     <Compile Include="FoodItem\FoodItemEdit.cs" />

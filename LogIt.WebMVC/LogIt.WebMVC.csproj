@@ -260,10 +260,14 @@
     <Content Include="Views\UserProfile\Details.cshtml" />
     <Content Include="Views\UserProfile\Edit.cshtml" />
     <Content Include="Views\UserProfile\Delete.cshtml" />
+    <Content Include="Views\FoodDay\Index.cshtml" />
+    <Content Include="Views\FoodDay\Create.cshtml" />
+    <Content Include="Views\FoodDay\Details.cshtml" />
+    <Content Include="Views\FoodDay\Edit.cshtml" />
+    <Content Include="Views\FoodDay\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\FoodDay\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

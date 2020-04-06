@@ -1,0 +1,256 @@
+﻿@model LogIt.Models.FoodDayDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Food Day</h2>
+
+<h3>Are you sure you want to delete this Food Day? [warnings about deleting other things that may depend on this?]</h3>
+<div>
+    <h4>FoodDayDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodDayId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodDayId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileCalories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileCalories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaloriesSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaloriesSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaloriesDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaloriesDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileCarbs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileCarbs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbsSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbsSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbsDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbsDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileFiber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileFiber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileFat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileFat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileProtein)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileProtein)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileSodium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileSodium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SodiumSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SodiumDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfilePotassium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfilePotassium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumDiff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumDiff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

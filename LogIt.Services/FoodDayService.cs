@@ -1,6 +1,6 @@
 ﻿using LogIt.Data;
 using LogIt.Models;
-using LogIt.Models.FoodItem;
+using LogIt.Models.FoodDay;
 using System;
 using System.Collections.Generic;
 using System.Linq;

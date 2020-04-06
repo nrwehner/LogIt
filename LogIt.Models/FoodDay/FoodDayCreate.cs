@@ -11,5 +11,8 @@ namespace LogIt.Models
     {
         [Required]
         public DateTime Date { get; set; }
+        [Required]
+        [Display(Name = "Goal Profile Title")]
+        public string ProfileTitle { get; set; }
     }
 }

@@ -19,38 +19,32 @@ namespace LogIt.Services
             _userId = userId;
         }
 
-        public bool CreateFoodItem(FoodItemCreate model)
+        public bool CreateFoodDay(FoodDayCreate model)
         {
             var entity =
-                new FoodItem()
+                new FoodDay()
                 {
-                    Name = model.Name,
-                    Description = model.Description,
-                    Calories = model.Calories,
-                    CarbohydrateGrams = model.CarbohydrateGrams,
-                    FatGrams = model.FatGrams,
-                    FiberGrams = model.FiberGrams,
-                    ProteinGrams = model.ProteinGrams,
-                    SodiumMilligrams = model.SodiumMilligrams,
-                    PotassiumMilligrams = model.PotassiumMilligrams,
+                    UserProfileId = _db.UserProfiles.Find(model.ProfileTitle).UserProfileId,
+                    Date = model.Date,
                     CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
-            _db.FoodItems.Add(entity);
+            _db.FoodDays.Add(entity);
             return _db.SaveChanges() == 1;
         }
 
-        public IEnumerable<FoodItemListItem> GetFoodItems()
+        public IEnumerable<FoodDayListItem> GetFoodDays()
         {
             var query =
                 _db
-                    .FoodItems
+                    .FoodDays
+                    .Where
                     .Select(
                         e =>
-                            new FoodItemListItem
+                            new FoodDayListItem
                             {
-                                FoodItemId = e.FoodItemId,
+                                FoodDayId = e.FoodDayId,
                                 Name = e.Name,
                                 Description = e.Description,
                                 IsStarred = e.IsStarred,
@@ -62,18 +56,17 @@ namespace LogIt.Services
             return query.ToArray();
         }
 
-        // Maybe create a GET version for the food items the user has made
+        public FoodDayDetail GetFoodDayById(int id)
 
-        public FoodItemDetail GetFoodItemById(int id)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == id);
+                    .FoodDays
+                    .Single(e => e.FoodDayId == id);
             return
-                new FoodItemDetail
+                new FoodDayDetail
                 {
-                    FoodItemId = entity.FoodItemId,
+                    FoodDayId = entity.FoodDayId,
                     Name = entity.Name,
                     Description = entity.Description,
                     Calories = entity.Calories,
@@ -91,12 +84,12 @@ namespace LogIt.Services
                 };
         }
 
-        public bool UpdateFoodItem(FoodItemEdit model)
+        public bool UpdateFoodDay(FoodDayEdit model)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == model.FoodItemId);
+                    .FoodDays
+                    .Single(e => e.FoodDayId == model.FoodDayId);
 
             entity.Name = model.Name;
             entity.Description = model.Description;
@@ -114,16 +107,14 @@ namespace LogIt.Services
             return _db.SaveChanges() == 1;
         }
 
-        // maybe a method to allow user to duplicate a food item
-
-        public bool DeleteFoodItem(int foodItemId)
+        public bool DeleteFoodDay(int foodDayId)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == foodItemId);
+                    .FoodDays
+                    .Single(e => e.FoodDayId == foodDayId);
 
-            _db.FoodItems.Remove(entity);
+            _db.FoodDays.Remove(entity);
 
             return _db.SaveChanges() == 1;
         }

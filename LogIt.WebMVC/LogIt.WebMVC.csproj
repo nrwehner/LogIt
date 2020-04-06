@@ -265,6 +265,7 @@
     <Content Include="Views\FoodDay\Details.cshtml" />
     <Content Include="Views\FoodDay\Edit.cshtml" />
     <Content Include="Views\FoodDay\Delete.cshtml" />
+    <Content Include="Views\UserProfile\CreateFoodDayFromProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

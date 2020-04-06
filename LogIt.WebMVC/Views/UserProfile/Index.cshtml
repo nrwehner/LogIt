@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<LogIt.Models.UserProfile.UserProfileListItem>
 
-
 @{
     ViewBag.Title = "Index";
 }
@@ -66,8 +65,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.UserProfileId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId })
-                @Html.ActionLink("Make A Day","Create","FoodDay")
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId }) |
+                @Html.ActionLink("Make A Day From This Profile", "CreateFoodDayFromProfile", "UserProfile", null,new { id=item.UserProfileId})
             </td>
         </tr>
     }

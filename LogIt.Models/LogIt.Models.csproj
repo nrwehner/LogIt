@@ -70,6 +70,7 @@
     <Compile Include="FoodDayItem\FoodDayItemDetail.cs" />
     <Compile Include="FoodDayItem\FoodDayItemEdit.cs" />
     <Compile Include="FoodDayItem\FoodDayItemListItem.cs" />
+    <Compile Include="FoodDay\FoodDayCreateFromProfile.cs" />
     <Compile Include="FoodDay\FoodDayCreate.cs" />
     <Compile Include="FoodDay\FoodDayDetail.cs" />
     <Compile Include="FoodDay\FoodDayEdit.cs" />

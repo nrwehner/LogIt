@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogIt.Data
 {
-    public class FoodDay
+    public class FoodDay //: ICreationRules
     {
         [Key]
         public int FoodDayId { get; set; }

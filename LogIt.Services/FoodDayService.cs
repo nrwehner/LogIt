@@ -24,7 +24,7 @@ namespace LogIt.Services
             var entity =
                 new FoodDay()
                 {
-                    UserProfileId = _db.UserProfiles.Find(model.ProfileTitle).UserProfileId,
+                    UserProfileId = _db.UserProfiles.FirstOrDefault(e => e.Title==model.ProfileTitle).UserProfileId,//this needs to be looked into - if profile title gets used twice, this could cause issues
                     Date = model.Date,
                     CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
                     CreatedUtc = DateTimeOffset.Now
@@ -36,7 +36,6 @@ namespace LogIt.Services
 
         public IEnumerable<FoodDayListItem> GetFoodDays()
         {
-            //var profileQuery = _db.UserProfiles.Where(y => y.Id == _userId);
             var query =
                 _db
                     .FoodDays
@@ -47,8 +46,8 @@ namespace LogIt.Services
                             {
                                 FoodDayId = e.FoodDayId,
                                 Date = e.Date,
-                                Title = _db.UserProfiles.Find(e.UserProfileId).Title,
-                                Description = _db.UserProfiles.Find(e.UserProfileId).Description,
+                                Title = e.UserProfile.Title,
+                                Description = e.UserProfile.Description,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc
                             }
@@ -65,27 +64,50 @@ namespace LogIt.Services
                     .FoodDays
                     .Single(e => e.FoodDayId == id);
             int calSum = 0;
+            double carbSum = 0;
+            double fiberSum = 0;
+            double fatSum = 0;
+            double proteinSum = 0;
+            int sodSum = 0;
+            int potSum = 0;
             foreach (FoodDayItem item in entity.FoodDayItems)
             {
                 calSum += item.FoodItem.Calories;
+                carbSum += item.FoodItem.CarbohydrateGrams;
+                fiberSum += item.FoodItem.FiberGrams;
+                fatSum += item.FoodItem.FatGrams;
+                proteinSum += item.FoodItem.ProteinGrams;
+                sodSum += item.FoodItem.SodiumMilligrams;
+                potSum += item.FoodItem.PotassiumMilligrams;
             }
             return
                 new FoodDayDetail
                 {
                     FoodDayId = entity.FoodDayId,
                     Date = entity.Date,
-                    ProfileTitle = _db.UserProfiles.Find(entity.UserProfileId).Title,
-                    ProfileDescription = _db.UserProfiles.Find(entity.UserProfileId).Description,
-                    ProfileCalories = _db.UserProfiles.Find(entity.UserProfileId).CaloryTarget,
+                    ProfileTitle = entity.UserProfile.Title,
+                    ProfileDescription = entity.UserProfile.Description,
+                    ProfileCalories = entity.UserProfile.CaloryTarget,
                     CaloriesSum = calSum,
-                    CaloriesDiff = ,
-                    CarbohydrateGrams = entity.CarbohydrateGrams,
-                    FiberGrams = entity.FiberGrams,
-                    FatGrams = entity.FatGrams,
-                    ProteinGrams = entity.ProteinGrams,
-                    SodiumMilligrams = entity.SodiumMilligrams,
-                    PotassiumMilligrams = entity.PotassiumMilligrams,
-                    IsStarred = entity.IsStarred,
+                    CaloriesDiff = calSum- entity.UserProfile.CaloryTarget,
+                    ProfileCarbs = entity.UserProfile.CarbTarget,
+                    CarbsSum = carbSum,
+                    CarbsDiff = carbSum - entity.UserProfile.CarbTarget,
+                    ProfileFiber = entity.UserProfile.FiberTarget,
+                    FiberSum = fiberSum,
+                    FiberDiff = fiberSum - entity.UserProfile.FiberTarget,
+                    ProfileFat = entity.UserProfile.FatTarget,
+                    FatSum = fatSum,
+                    FatDiff = fatSum - entity.UserProfile.FatTarget,
+                    ProfileProtein = entity.UserProfile.ProteinTarget,
+                    ProteinSum = proteinSum,
+                    ProteinDiff = proteinSum - entity.UserProfile.ProteinTarget,
+                    ProfileSodium = entity.UserProfile.SodiumTarget,
+                    SodiumSum = sodSum,
+                    SodiumDiff = sodSum - entity.UserProfile.SodiumTarget,
+                    ProfilePotassium = entity.UserProfile.PotassiumTarget,
+                    PotassiumSum = potSum,
+                    PotassiumDiff = potSum - entity.UserProfile.PotassiumTarget,
                     CreatedBy = entity.CreatedBy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedBy = entity.ModifiedBy,
@@ -100,16 +122,7 @@ namespace LogIt.Services
                     .FoodDays
                     .Single(e => e.FoodDayId == model.FoodDayId);
 
-            entity.Name = model.Name;
-            entity.Description = model.Description;
-            entity.Calories = model.Calories;
-            entity.CarbohydrateGrams = model.CarbohydrateGrams;
-            entity.FiberGrams = model.FiberGrams;
-            entity.FatGrams = model.FatGrams;
-            entity.ProteinGrams = model.ProteinGrams;
-            entity.SodiumMilligrams = model.SodiumMilligrams;
-            entity.PotassiumMilligrams = model.PotassiumMilligrams;
-            entity.IsStarred = model.IsStarred;
+            entity.Date = model.Date;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

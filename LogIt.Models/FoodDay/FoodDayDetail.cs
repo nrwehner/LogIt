@@ -28,39 +28,39 @@ namespace LogIt.Models
         [Display(Name = "Goal Profile Carbs (Net)")]
         public double ProfileCarbs { get; set; }
         [Display(Name = "Actual Daily Carbs (Net)")]
-        public int CarbsSum { get; set; }
+        public double CarbsSum { get; set; }
         [Display(Name = "Carbs (Net) Diff")]
-        public int CarbsDiff { get; set; }
+        public double CarbsDiff { get; set; }
         [Display(Name = "Goal Profile Fiber")]
         public double ProfileFiber { get; set; }
         [Display(Name = "Actual Daily Fiber")]
-        public int FiberSum { get; set; }
+        public double FiberSum { get; set; }
         [Display(Name = "Fiber Diff")]
-        public int FiberDiff { get; set; }
+        public double FiberDiff { get; set; }
         [Display(Name = "Goal Profile Fat")]
         public double ProfileFat { get; set; }
         [Display(Name = "Actual Daily Fat")]
-        public int FatSum { get; set; }
+        public double FatSum { get; set; }
         [Display(Name = "Fat Diff")]
-        public int FatDiff { get; set; }
+        public double FatDiff { get; set; }
         [Display(Name = "Goal Profile Protein")]
         public double ProfileProtein { get; set; }
         [Display(Name = "Actual Daily Protein")]
-        public int ProteinSum { get; set; }
+        public double ProteinSum { get; set; }
         [Display(Name = "Protein Diff")]
-        public int ProteinDiff { get; set; }
+        public double ProteinDiff { get; set; }
         [Display(Name = "Goal Profile Sodium")]
-        public int ProfileSodium { get; set; }
+        public double ProfileSodium { get; set; }
         [Display(Name = "Actual Daily Sodium")]
-        public int SodiumSum { get; set; }
+        public double SodiumSum { get; set; }
         [Display(Name = "Sodium Diff")]
-        public int SodiumDiff { get; set; }
+        public double SodiumDiff { get; set; }
         [Display(Name = "Goal Profile Potassium")]
-        public int ProfilePotassium { get; set; }
+        public double ProfilePotassium { get; set; }
         [Display(Name = "Actual Daily Potassium")]
-        public int PotassiumSum { get; set; }
+        public double PotassiumSum { get; set; }
         [Display(Name = "Potassium Diff")]
-        public int PotassiumDiff { get; set; }
+        public double PotassiumDiff { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created Date")]

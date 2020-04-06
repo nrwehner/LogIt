@@ -24,6 +24,7 @@ namespace LogIt.Models
         public int CaloriesSum { get; set; }
         [Display(Name = "Calories Diff")]
         public int CaloriesDiff { get; set; }
+        //do i want to add in the Weight fields here as well - basically score for the day comparing actual to profile?
         [Display(Name = "Goal Profile Carbs (Net)")]
         public double ProfileCarbs { get; set; }
         [Display(Name = "Actual Daily Carbs (Net)")]
@@ -60,8 +61,6 @@ namespace LogIt.Models
         public int PotassiumSum { get; set; }
         [Display(Name = "Potassium Diff")]
         public int PotassiumDiff { get; set; }
-        [UIHint("Starred")]
-        public bool IsStarred { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created Date")]

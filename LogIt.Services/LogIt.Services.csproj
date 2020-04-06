@@ -66,7 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FoodIDayService.cs" />
+    <Compile Include="FoodDayService.cs" />
     <Compile Include="FoodDayItemService.cs" />
     <Compile Include="FoodItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

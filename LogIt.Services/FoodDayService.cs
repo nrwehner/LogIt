@@ -36,18 +36,19 @@ namespace LogIt.Services
 
         public IEnumerable<FoodDayListItem> GetFoodDays()
         {
+            //var profileQuery = _db.UserProfiles.Where(y => y.Id == _userId);
             var query =
                 _db
                     .FoodDays
-                    .Where
+                    .Where(e => e.UserProfile.ApplicationUser.Id == _userId)
                     .Select(
                         e =>
                             new FoodDayListItem
                             {
                                 FoodDayId = e.FoodDayId,
-                                Name = e.Name,
-                                Description = e.Description,
-                                IsStarred = e.IsStarred,
+                                Date = e.Date,
+                                Title = _db.UserProfiles.Find(e.UserProfileId).Title,
+                                Description = _db.UserProfiles.Find(e.UserProfileId).Description,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc
                             }
@@ -63,13 +64,21 @@ namespace LogIt.Services
                 _db
                     .FoodDays
                     .Single(e => e.FoodDayId == id);
+            int calSum = 0;
+            foreach (FoodDayItem item in entity.FoodDayItems)
+            {
+                calSum += item.FoodItem.Calories;
+            }
             return
                 new FoodDayDetail
                 {
                     FoodDayId = entity.FoodDayId,
-                    Name = entity.Name,
-                    Description = entity.Description,
-                    Calories = entity.Calories,
+                    Date = entity.Date,
+                    ProfileTitle = _db.UserProfiles.Find(entity.UserProfileId).Title,
+                    ProfileDescription = _db.UserProfiles.Find(entity.UserProfileId).Description,
+                    ProfileCalories = _db.UserProfiles.Find(entity.UserProfileId).CaloryTarget,
+                    CaloriesSum = calSum,
+                    CaloriesDiff = ,
                     CarbohydrateGrams = entity.CarbohydrateGrams,
                     FiberGrams = entity.FiberGrams,
                     FatGrams = entity.FatGrams,

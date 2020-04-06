@@ -16,8 +16,6 @@ namespace LogIt.Models
         public string Title { get; set; }
         [Display(Name = "Goal Profile Description")]
         public string Description { get; set; }
-        [UIHint("Starred")]
-        public bool IsStarred { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created")]

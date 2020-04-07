@@ -55,7 +55,7 @@ namespace LogIt.Services
             var query =
                 _db
                     .FoodDays
-                    .Where(e => e.UserProfile.ApplicationUser.Id == _userId)//need to re-look at this - you can created a foodday of a profile that is not yours right now - but it won't display in your fooddays - probably once I build a drop-down constraint, you won't be able to use profiles that aren't yours
+                    .Where(e => e.UserProfile.Id == _userId)//need to re-look at this - you can create a foodday of a profile that is not yours right now - but it won't display in your fooddays - probably once I build a drop-down constraint, you won't be able to use profiles that aren't yours
                     .Select(
                         e =>
                             new FoodDayListItem

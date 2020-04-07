@@ -10,10 +10,8 @@ namespace LogIt.Models
     public class FoodDayItemDetail
     {
         //it's just a join table
-        [Display(Name = "Food Day Id")]
-        public int FoodDayId { get; set; }
-        //public virtual ICollection<FoodDayItem> FoodDayItems { get; set; } //maybe use this at some point to create a 
-        //field that can count how many food items are in the day or even potentially pull summary data (calories, carbs, etc) for the day?
+        [Display(Name = "Food Day Item Id")]
+        public int FoodDayItemId { get; set; }
         public DateTime Date { get; set; }
         [Display(Name = "Goal Profile Title")]
         public string ProfileTitle { get; set; }

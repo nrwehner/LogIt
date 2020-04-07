@@ -9,8 +9,10 @@ namespace LogIt.Models
 {
     public class FoodDayItemCreate
     {
-        //it's just a join table
         [Required]
-        public DateTime Date { get; set; }
+        public int FoodDayId { get; set; }
+        [Required]
+        [Display(Name = "Food Item Name")]
+        public string FoodItemName { get; set; }
     }
 }

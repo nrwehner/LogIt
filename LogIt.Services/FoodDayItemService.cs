@@ -19,41 +19,36 @@ namespace LogIt.Services
             _userId = userId;
         }
 
-        public bool CreateFoodItem(FoodItemCreate model)
+        public bool CreateFoodDayItem(FoodDayItemCreate model)
         {
             var entity =
-                new FoodItem()
+                new FoodDayItem()
                 {
-                    Name = model.Name,
-                    Description = model.Description,
-                    Calories = model.Calories,
-                    CarbohydrateGrams = model.CarbohydrateGrams,
-                    FatGrams = model.FatGrams,
-                    FiberGrams = model.FiberGrams,
-                    ProteinGrams = model.ProteinGrams,
-                    SodiumMilligrams = model.SodiumMilligrams,
-                    PotassiumMilligrams = model.PotassiumMilligrams,
+                    FoodDayId = model.FoodDayId,
+                    FoodItemId = _db.FoodItems.FirstOrDefault(e => e.Name == model.FoodItemName).FoodItemId,//this needs to be looked into - if food item name gets used twice, this could cause issues with selecting the right one - dropdown solves it?
                     CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
-            _db.FoodItems.Add(entity);
+            _db.FoodDayItems.Add(entity);
             return _db.SaveChanges() == 1;
         }
-
-        public IEnumerable<FoodItemListItem> GetFoodItems()
+        public IEnumerable<FoodDayItemListItem> GetAllFoodDayItemsForUser()
         {
             var query =
                 _db
-                    .FoodItems
+                    .FoodDayItems
+                    .Where(e => e.FoodDay.UserProfile.Id == _userId)
                     .Select(
                         e =>
-                            new FoodItemListItem
+                            new FoodDayItemListItem
                             {
+                                FoodDayItemId = e.FoodDayItemId,
+                                FoodDayId = e.FoodDayId,
+                                Date = e.FoodDay.Date,
+                                ProfileTitle = e.FoodDay.UserProfile.Title,
                                 FoodItemId = e.FoodItemId,
-                                Name = e.Name,
-                                Description = e.Description,
-                                IsStarred = e.IsStarred,
+                                FoodItemName = e.FoodItem.Name,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc
                             }
@@ -62,18 +57,40 @@ namespace LogIt.Services
             return query.ToArray();
         }
 
-        // Maybe create a GET version for the food items the user has made
+        public IEnumerable<FoodDayItemListItem> GetFoodDayItemsByFoodDay(int foodDayId)
+        {
+            var query =
+                _db
+                    .FoodDayItems
+                    .Where(e => e.FoodDayId == foodDayId)
+                    .Select(
+                        e =>
+                            new FoodDayItemListItem
+                            {
+                                FoodDayItemId = e.FoodDayItemId,
+                                FoodDayId = e.FoodDayId,
+                                Date = e.FoodDay.Date,
+                                ProfileTitle = e.FoodDay.UserProfile.Title,
+                                FoodItemId=e.FoodItemId,
+                                FoodItemName=e.FoodItem.Name,
+                                CreatedBy = e.CreatedBy,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                    );
 
-        public FoodItemDetail GetFoodItemById(int id)
+            return query.ToArray();
+        }
+
+        public FoodDayItemDetail GetFoodDayItemById(int id)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == id);
+                    .FoodDayItems
+                    .Single(e => e.FoodDayItemId == id);
             return
-                new FoodItemDetail
+                new FoodDayItemDetail
                 {
-                    FoodItemId = entity.FoodItemId,
+                    FoodDayItemId = entity.FoodDayItemId,
                     Name = entity.Name,
                     Description = entity.Description,
                     Calories = entity.Calories,
@@ -83,7 +100,6 @@ namespace LogIt.Services
                     ProteinGrams = entity.ProteinGrams,
                     SodiumMilligrams = entity.SodiumMilligrams,
                     PotassiumMilligrams = entity.PotassiumMilligrams,
-                    IsStarred = entity.IsStarred,
                     CreatedBy = entity.CreatedBy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedBy = entity.ModifiedBy,
@@ -91,12 +107,12 @@ namespace LogIt.Services
                 };
         }
 
-        public bool UpdateFoodItem(FoodItemEdit model)
+        /*public bool UpdateFoodDayItem(FoodDayItemEdit model)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == model.FoodItemId);
+                    .FoodDayItems
+                    .Single(e => e.FoodDayItemId == model.FoodDayItemId);
 
             entity.Name = model.Name;
             entity.Description = model.Description;
@@ -107,25 +123,22 @@ namespace LogIt.Services
             entity.ProteinGrams = model.ProteinGrams;
             entity.SodiumMilligrams = model.SodiumMilligrams;
             entity.PotassiumMilligrams = model.PotassiumMilligrams;
-            entity.IsStarred = model.IsStarred;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
             return _db.SaveChanges() == 1;
         }
 
-        // maybe a method to allow user to duplicate a food item
-
-        public bool DeleteFoodItem(int foodItemId)
+        public bool DeleteFoodDayItem(int foodDayItemId)
         {
             var entity =
                 _db
-                    .FoodItems
-                    .Single(e => e.FoodItemId == foodItemId);
+                    .FoodDayItems
+                    .Single(e => e.FoodDayItemId == foodDayItemId);
 
-            _db.FoodItems.Remove(entity);
+            _db.FoodDayItems.Remove(entity);
 
             return _db.SaveChanges() == 1;
-        }
+        }*/
     }
 }

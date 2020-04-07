@@ -131,22 +131,7 @@ namespace LogIt.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //GET: UserProfile/CreateFoodDay(from Profile)
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateFoodDayFromProfile(int id)
-        {
-            var profileService = CreateUserProfileService();
-            var profile = profileService.GetUserProfileById(id);
-            var model =
-                new FoodDayCreateFromProfile
-                {
-                    UserProfileId = profile.UserProfileId,
-                    ProfileTitle = profile.Title
-                };
 
-            return View(model);
-        }
         private UserProfileService CreateUserProfileService()
         {
             var userId = User.Identity.GetUserId();

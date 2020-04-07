@@ -34,6 +34,22 @@ namespace LogIt.Services
             return _db.SaveChanges() == 1;
         }
 
+        public bool CreateFoodDayFromProfile(FoodDayCreateFromProfile model)
+        {
+            var entity =
+                new FoodDay()
+                {
+                    UserProfileId = model.UserProfileId,
+                    Date = model.Date,
+                    CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
+                    CreatedUtc = DateTimeOffset.Now
+                };
+
+            _db.FoodDays.Add(entity);
+            return _db.SaveChanges() == 1;
+        }
+
+
         public IEnumerable<FoodDayListItem> GetFoodDays()
         {
             var query =

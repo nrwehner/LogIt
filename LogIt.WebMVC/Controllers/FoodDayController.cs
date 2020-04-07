@@ -1,4 +1,5 @@
-﻿using LogIt.Models;
+﻿using LogIt.Data;
+using LogIt.Models;
 using LogIt.Models.FoodDay;
 using LogIt.Services;
 using Microsoft.AspNet.Identity;
@@ -21,7 +22,7 @@ namespace LogIt.WebMVC.Controllers
 
             return View(model);
         }
-
+        
         //GET : FoodDay/Create
         public ActionResult Create()
         {
@@ -41,6 +42,52 @@ namespace LogIt.WebMVC.Controllers
             var service = CreateFoodDayService();
 
             if (service.CreateFoodDay(model))
+            {
+                TempData["SaveResult"] = "Your Food Day was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your Food Day could not be created.");
+
+            return View(model);
+        }
+        
+
+        //GET: FoodDay/CreateFoodDay(from Profile)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFoodDayFromProfile(int id)
+        {
+        ApplicationDbContext ctx = new ApplicationDbContext();
+        var model =
+                new FoodDayCreateFromProfile
+                {
+                    UserProfileId = id,
+                    ProfileTitle = ctx.UserProfiles.Find(id).Title,
+                    Date = DateTime.Now
+                };
+
+            return View(model);
+        }
+        //GET : FoodDay/CreateFoodDay(from Profile)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFoodDayFromProfile(int id, FoodDayCreateFromProfile model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.UserProfileId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateFoodDayService();
+
+            if (service.CreateFoodDayFromProfile(model))
             {
                 TempData["SaveResult"] = "Your Food Day was created.";
                 return RedirectToAction("Index");

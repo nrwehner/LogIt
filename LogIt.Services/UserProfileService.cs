@@ -1,4 +1,5 @@
 ﻿using LogIt.Data;
+using LogIt.Models;
 using LogIt.Models.UserProfile;
 using System;
 using System.Collections.Generic;

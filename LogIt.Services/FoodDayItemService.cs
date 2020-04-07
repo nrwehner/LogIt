@@ -91,15 +91,26 @@ namespace LogIt.Services
                 new FoodDayItemDetail
                 {
                     FoodDayItemId = entity.FoodDayItemId,
-                    Name = entity.Name,
-                    Description = entity.Description,
-                    Calories = entity.Calories,
-                    CarbohydrateGrams = entity.CarbohydrateGrams,
-                    FiberGrams = entity.FiberGrams,
-                    FatGrams = entity.FatGrams,
-                    ProteinGrams = entity.ProteinGrams,
-                    SodiumMilligrams = entity.SodiumMilligrams,
-                    PotassiumMilligrams = entity.PotassiumMilligrams,
+                    FoodDayId = entity.FoodDayId,
+                    Date = entity.FoodDay.Date,
+                    ProfileTitle = entity.FoodDay.UserProfile.Title,
+                    ProfileDescription = entity.FoodDay.UserProfile.Description,
+                    FoodItemId = entity.FoodItemId,
+                    FoodItemName = entity.FoodItem.Name,
+                    ItemCalories = entity.FoodItem.Calories,
+                    CalorieWeight = (entity.FoodItem.Calories/entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemCarbs = entity.FoodItem.CarbohydrateGrams,
+                    CarbWeight = (entity.FoodItem.CarbohydrateGrams/entity.FoodDay.UserProfile.CarbTarget)/(entity.FoodItem.Calories/entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemFiber = entity.FoodItem.FiberGrams,
+                    FiberWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemFat=entity.FoodItem.FatGrams,
+                    FatWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemProtein = entity.FoodItem.ProteinGrams,
+                    ProteinWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemSodium = entity.FoodItem.SodiumMilligrams,
+                    SodiumWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    ItemPotassium = entity.FoodItem.PotassiumMilligrams,
+                    PotassiumWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
                     CreatedBy = entity.CreatedBy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedBy = entity.ModifiedBy,
@@ -107,22 +118,16 @@ namespace LogIt.Services
                 };
         }
 
-        /*public bool UpdateFoodDayItem(FoodDayItemEdit model)
+        public bool UpdateFoodDayItem(FoodDayItemEdit model)//this is only allowing the user to change the food item - 
+            //if you want to be able to change the foodday also, do separate method - i'm not sure if you would ever want to do that, 
+            //though - you will always be adding, editng, and deleting foodayitems within a specific foodday
         {
             var entity =
                 _db
                     .FoodDayItems
                     .Single(e => e.FoodDayItemId == model.FoodDayItemId);
 
-            entity.Name = model.Name;
-            entity.Description = model.Description;
-            entity.Calories = model.Calories;
-            entity.CarbohydrateGrams = model.CarbohydrateGrams;
-            entity.FiberGrams = model.FiberGrams;
-            entity.FatGrams = model.FatGrams;
-            entity.ProteinGrams = model.ProteinGrams;
-            entity.SodiumMilligrams = model.SodiumMilligrams;
-            entity.PotassiumMilligrams = model.PotassiumMilligrams;
+            entity.FoodItemId = _db.FoodItems.FirstOrDefault(e => e.Name == model.FoodItemName).FoodItemId;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
@@ -139,6 +144,6 @@ namespace LogIt.Services
             _db.FoodDayItems.Remove(entity);
 
             return _db.SaveChanges() == 1;
-        }*/
+        }
     }
 }

@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogIt.Models.FoodItem
+namespace LogIt.Models
 {
     public class FoodDayItemEdit
     {
-        //it's just a join table
-        [Display(Name = "Day Id")]
-        public int FoodDayId { get; set; }
-        public DateTime Date { get; set; }
+        [Display(Name = "Food Day Item Id")]
+        public int FoodDayItemId { get; set; }
+        [Display(Name = "Food Item Id")]
+        public int FoodItemId { get; set; }
+        [Display(Name = "Food Item Name")]
+        public string FoodItemName { get; set; }
     }
 }

@@ -1,11 +1,10 @@
-﻿@model IEnumerable<LogIt.Models.FoodDayListItem>
-
+﻿@model IEnumerable<LogIt.Models.FoodDayItemListItem>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Food Day List</h2>
+<h2>Food Day Items</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -22,16 +21,22 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.FoodDayItemId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FoodDayId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.ProfileTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.FoodItemId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodItemName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
@@ -46,16 +51,22 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.FoodDayItemId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FoodDayId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.ProfileTitle)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.FoodItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodItemName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedBy)
@@ -64,10 +75,9 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FoodDayId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.FoodDayId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FoodDayId }) |
-                @Html.ActionLink("Add A Food Item To This Day", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, null)
+                @Html.ActionLink("Edit", "Edit", new { id=item.FoodDayItemId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.FoodDayItemId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.FoodDayItemId })
             </td>
         </tr>
     }

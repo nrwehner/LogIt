@@ -10,8 +10,8 @@ namespace LogIt.Models
     public class FoodDayItemCreate
     {
         [Required]
+        [Display(Name = "Food Day Id")]
         public int FoodDayId { get; set; }
-        [Required]
         [Display(Name = "Food Item Name")]
         public string FoodItemName { get; set; }
     }

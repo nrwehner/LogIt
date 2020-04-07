@@ -12,55 +12,45 @@ namespace LogIt.Models
         //it's just a join table
         [Display(Name = "Food Day Item Id")]
         public int FoodDayItemId { get; set; }
+        [Display(Name = "Food Day Id")]
+        public int FoodDayId { get; set; }
         public DateTime Date { get; set; }
         [Display(Name = "Goal Profile Title")]
         public string ProfileTitle { get; set; }
         [Display(Name = "Goal Profile Description")]
         public string ProfileDescription { get; set; }
-        [Display(Name = "Goal Profile Calories")]
-        public int ProfileCalories { get; set; }
-        [Display(Name = "Actual Daily Calories")]
-        public int CaloriesSum { get; set; }
-        [Display(Name = "Calories Diff")]
-        public int CaloriesDiff { get; set; }
-        [Display(Name = "Goal Profile Carbs (Net)")]
-        public double ProfileCarbs { get; set; }
-        [Display(Name = "Actual Daily Carbs (Net)")]
-        public int CarbsSum { get; set; }
-        [Display(Name = "Carbs (Net) Diff")]
-        public int CarbsDiff { get; set; }
-        [Display(Name = "Goal Profile Fiber")]
-        public double ProfileFiber { get; set; }
-        [Display(Name = "Actual Daily Fiber")]
-        public int FiberSum { get; set; }
-        [Display(Name = "Fiber Diff")]
-        public int FiberDiff { get; set; }
-        [Display(Name = "Goal Profile Fat")]
-        public double ProfileFat { get; set; }
-        [Display(Name = "Actual Daily Fat")]
-        public int FatSum { get; set; }
-        [Display(Name = "Fat Diff")]
-        public int FatDiff { get; set; }
-        [Display(Name = "Goal Profile Protein")]
-        public double ProfileProtein { get; set; }
-        [Display(Name = "Actual Daily Protein")]
-        public int ProteinSum { get; set; }
-        [Display(Name = "Protein Diff")]
-        public int ProteinDiff { get; set; }
-        [Display(Name = "Goal Profile Sodium")]
-        public int ProfileSodium { get; set; }
-        [Display(Name = "Actual Daily Sodium")]
-        public int SodiumSum { get; set; }
-        [Display(Name = "Sodium Diff")]
-        public int SodiumDiff { get; set; }
-        [Display(Name = "Goal Profile Potassium")]
-        public int ProfilePotassium { get; set; }
-        [Display(Name = "Actual Daily Potassium")]
-        public int PotassiumSum { get; set; }
-        [Display(Name = "Potassium Diff")]
-        public int PotassiumDiff { get; set; }
-        [UIHint("Starred")]
-        public bool IsStarred { get; set; }
+        [Display(Name = "Food Item Id")]
+        public int FoodItemId { get; set; }
+        [Display(Name = "Food Item Name")]
+        public string FoodItemName { get; set; }
+        [Display(Name = "Food Item Calories")]
+        public int ItemCalories { get; set; }
+        [Display(Name = "Calorie Proportion")]
+        public double CalorieWeight { get; set; }
+        [Display(Name = "Food Item Carbs")]
+        public double ItemCarbs { get; set; }
+        [Display(Name = "Carb Weight")]
+        public double CarbWeight { get; set; }
+        [Display(Name = "Food Item Fiber")]
+        public double ItemFiber { get; set; }
+        [Display(Name = "Fiber Weight")]
+        public double FiberWeight { get; set; }
+        [Display(Name = "Food Item Fat")]
+        public double ItemFat { get; set; }
+        [Display(Name = "Fat Weight")]
+        public double FatWeight { get; set; }
+        [Display(Name = "Food Item Protein")]
+        public double ItemProtein { get; set; }
+        [Display(Name = "Protein Weight")]
+        public double ProteinWeight { get; set; }
+        [Display(Name = "Food Item Sodium")]
+        public int ItemSodium { get; set; }
+        [Display(Name = "Sodium Weight")]
+        public double SodiumWeight { get; set; }
+        [Display(Name = "Food Item Potassium")]
+        public int ItemPotassium { get; set; }
+        [Display(Name = "Potassium Weight")]
+        public double PotassiumWeight { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created Date")]

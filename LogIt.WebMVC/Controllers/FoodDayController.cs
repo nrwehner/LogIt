@@ -80,7 +80,7 @@ namespace LogIt.WebMVC.Controllers
             if (model.UserProfileId != profId)//maybe don't want this check if you want to let the user change the profile 
                 //they're choosing - but would you? - also, maybe pass the parameters from the userprofile view directly into this
                 //post method rather than landing on a creation screen at all - just click from userprofile link, do the save, and land on
-                // the foodday index screen with a "your foodday was created" message - for failures, need to land on creation screen?
+                // the foodday index screen (NEED TO COPY THE TEMPDATACONTAINSKEYSAVERESULT CODE FROM INDEX VIEW) with a "your foodday was created" message - for failures, need to land on creation screen?
                 //maybe there can't be failures since the user is not giving any input? the question will be, can i figure how to pass a 
                 //whole model from the userprofile link into this post method?
                 //i might end up not end needing the foodday creation landing screen - you would always just pick a profile and select a date

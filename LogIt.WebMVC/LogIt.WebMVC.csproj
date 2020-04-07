@@ -267,10 +267,15 @@
     <Content Include="Views\FoodDay\Edit.cshtml" />
     <Content Include="Views\FoodDay\Delete.cshtml" />
     <Content Include="Views\FoodDay\CreateFoodDayFromProfile.cshtml" />
+    <Content Include="Views\FoodDayItem\Index.cshtml" />
+    <Content Include="Views\FoodDayItem\Create.cshtml" />
+    <Content Include="Views\FoodDayItem\CreateFoodDayItemFromFoodDay.cshtml" />
+    <Content Include="Views\FoodDayItem\Details.cshtml" />
+    <Content Include="Views\FoodDayItem\Edit.cshtml" />
+    <Content Include="Views\FoodDayItem\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\FoodDayItem\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

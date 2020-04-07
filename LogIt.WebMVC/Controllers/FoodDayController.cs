@@ -54,16 +54,14 @@ namespace LogIt.WebMVC.Controllers
         
 
         //GET: FoodDay/CreateFoodDay(from Profile)
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateFoodDayFromProfile(int id)
+        public ActionResult CreateFoodDayFromProfile(int profId)
         {
         ApplicationDbContext ctx = new ApplicationDbContext();
         var model =
                 new FoodDayCreateFromProfile
                 {
-                    UserProfileId = id,
-                    ProfileTitle = ctx.UserProfiles.Find(id).Title,
+                    UserProfileId = profId,
+                    ProfileTitle = ctx.UserProfiles.Find(profId).Title,
                     Date = DateTime.Now
                 };
 
@@ -72,14 +70,14 @@ namespace LogIt.WebMVC.Controllers
         //GET : FoodDay/CreateFoodDay(from Profile)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateFoodDayFromProfile(int id, FoodDayCreateFromProfile model)
+        public ActionResult CreateFoodDayFromProfile(int profId, FoodDayCreateFromProfile model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            if (model.UserProfileId != id)
+            if (model.UserProfileId != profId)//maybe don't want this check if you want to let the user change the profile they're choosing - but would you?
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -116,7 +114,8 @@ namespace LogIt.WebMVC.Controllers
                 new FoodDayEdit
                 {
                     FoodDayId = detail.FoodDayId,
-                    Date = detail.Date,
+                    ProfileTitle = detail.ProfileTitle,
+                    Date = detail.Date
                 };
 
             return View(model);

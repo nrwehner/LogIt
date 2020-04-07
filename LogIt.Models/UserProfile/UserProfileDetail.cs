@@ -14,11 +14,11 @@ namespace LogIt.Models.UserProfile
         [Display(Name = "User")]
         public string FullName { get; set; }
         //public virtual ICollection<FoodDay> FoodDays { get; set; } //maybe use this at some point to create a field that can count how many days the profile has been used?
-        [Display(Name = "Item Title")]
+        [Display(Name = "Profile Title")]
         public string Title { get; set; }
-        [Display(Name = "Item Description")]
+        [Display(Name = "Profile Description")]
         public string Description { get; set; }
-        [Display(Name = "Calory Target")]
+        [Display(Name = "Calorie Target")]
         public int CaloryTarget { get; set; }
         [Display(Name = "Carbohydrate Target (Net)")]
         public double CarbTarget { get; set; }

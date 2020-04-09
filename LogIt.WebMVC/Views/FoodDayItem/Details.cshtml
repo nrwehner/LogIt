@@ -75,6 +75,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.CalorieTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalorieTarget)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.CalorieWeight)
         </dt>
 
@@ -88,6 +96,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ItemCarbs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbTarget)
         </dd>
 
         <dt>
@@ -107,6 +123,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.FiberTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberTarget)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.FiberWeight)
         </dt>
 
@@ -120,6 +144,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ItemFat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatTarget)
         </dd>
 
         <dt>
@@ -139,6 +171,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ProteinTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinTarget)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ProteinWeight)
         </dt>
 
@@ -155,6 +195,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.SodiumTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SodiumTarget)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.SodiumWeight)
         </dt>
 
@@ -168,6 +216,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ItemPotassium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotassiumTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotassiumTarget)
         </dd>
 
         <dt>
@@ -214,5 +270,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.FoodDayItemId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Food Item List", "Index")
 </p>

@@ -87,6 +87,7 @@ namespace LogIt.Services
                 _db
                     .FoodDayItems
                     .Single(e => e.FoodDayItemId == id);
+            double calWeight = ((double)entity.FoodItem.Calories / (double)entity.FoodDay.UserProfile.CaloryTarget);
             return
                 new FoodDayItemDetail
                 {
@@ -98,19 +99,26 @@ namespace LogIt.Services
                     FoodItemId = entity.FoodItemId,
                     FoodItemName = entity.FoodItem.Name,
                     ItemCalories = entity.FoodItem.Calories,
-                    CalorieWeight = (entity.FoodItem.Calories/entity.FoodDay.UserProfile.CaloryTarget),
+                    CalorieTarget = entity.FoodDay.UserProfile.CaloryTarget,
+                    CalorieWeight = calWeight,
                     ItemCarbs = entity.FoodItem.CarbohydrateGrams,
-                    CarbWeight = (entity.FoodItem.CarbohydrateGrams/entity.FoodDay.UserProfile.CarbTarget)/(entity.FoodItem.Calories/entity.FoodDay.UserProfile.CaloryTarget),
+                    CarbTarget = entity.FoodDay.UserProfile.CaloryTarget,
+                    CarbWeight = (entity.FoodItem.CarbohydrateGrams/entity.FoodDay.UserProfile.CarbTarget)/ calWeight,
                     ItemFiber = entity.FoodItem.FiberGrams,
-                    FiberWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    FiberTarget = entity.FoodDay.UserProfile.FiberTarget,
+                    FiberWeight = (entity.FoodItem.FiberGrams / entity.FoodDay.UserProfile.FiberTarget) / calWeight,
                     ItemFat=entity.FoodItem.FatGrams,
-                    FatWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    FatTarget = entity.FoodDay.UserProfile.FatTarget,
+                    FatWeight = (entity.FoodItem.FatGrams / entity.FoodDay.UserProfile.FatTarget) / calWeight,
                     ItemProtein = entity.FoodItem.ProteinGrams,
-                    ProteinWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    ProteinTarget = entity.FoodDay.UserProfile.ProteinTarget,
+                    ProteinWeight = (entity.FoodItem.ProteinGrams / entity.FoodDay.UserProfile.ProteinTarget) / calWeight,
                     ItemSodium = entity.FoodItem.SodiumMilligrams,
-                    SodiumWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    SodiumTarget = entity.FoodDay.UserProfile.SodiumTarget,
+                    SodiumWeight = ((double)entity.FoodItem.SodiumMilligrams / entity.FoodDay.UserProfile.SodiumTarget) / calWeight,
                     ItemPotassium = entity.FoodItem.PotassiumMilligrams,
-                    PotassiumWeight = (entity.FoodItem.CarbohydrateGrams / entity.FoodDay.UserProfile.CarbTarget) / (entity.FoodItem.Calories / entity.FoodDay.UserProfile.CaloryTarget),
+                    PotassiumTarget = entity.FoodDay.UserProfile.PotassiumTarget,
+                    PotassiumWeight = ((double)entity.FoodItem.PotassiumMilligrams / entity.FoodDay.UserProfile.PotassiumTarget) / calWeight,
                     CreatedBy = entity.CreatedBy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedBy = entity.ModifiedBy,

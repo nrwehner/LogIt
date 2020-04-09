@@ -15,6 +15,8 @@ namespace LogIt.Models
         public string Name { get; set; }
         [Display(Name = "Item Description")]
         public string Description { get; set; }
+        [Display(Name = "Nutrional Summary")]
+        public string NutSum { get; set; }
         [UIHint("Starred")]
         public bool IsStarred { get; set; }
         [Display(Name = "Created By")]

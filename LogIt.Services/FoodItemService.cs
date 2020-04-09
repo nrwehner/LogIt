@@ -53,11 +53,11 @@ namespace LogIt.Services
                                 FoodItemId = e.FoodItemId,
                                 Name = e.Name,
                                 Description = e.Description,
-                                IsStarred = e.IsStarred,
+                                NutSum = "CALs: "+e.Calories+", CARBs: "+e.CarbohydrateGrams+", FIB: "+e.FiberGrams+", FAT: "+e.FatGrams+", PROT: "+e.ProteinGrams+", SOD: "+e.SodiumMilligrams+", POT: "+e.PotassiumMilligrams,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc
                             }
-                    );
+                    ); ;
 
             return query.ToArray();
         }

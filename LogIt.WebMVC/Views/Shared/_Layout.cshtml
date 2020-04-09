@@ -24,11 +24,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Food Items", "NonUserIndex", "FoodItem")</li>
+                    }
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <li>@Html.ActionLink("Food Items", "Index", "FoodItem")</li>
-                    <li>@Html.ActionLink("Profile", "Index", "UserProfile")</li>
-                    <li>@Html.ActionLink("FoodDay", "Index", "FoodDay")</li>
+                        <li>@Html.ActionLink("Food Items", "Index", "FoodItem")</li>
+                        <li>@Html.ActionLink("Profile", "Index", "UserProfile")</li>
+                        <li>@Html.ActionLink("FoodDay", "Index", "FoodDay")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

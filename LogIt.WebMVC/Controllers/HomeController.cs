@@ -26,5 +26,12 @@ namespace LogIt.WebMVC.Controllers
 
             return View();
         }
+
+        public ActionResult Learn()
+        {
+            ViewBag.Message = "How It Works.";
+
+            return View();
+        }
     }
 }

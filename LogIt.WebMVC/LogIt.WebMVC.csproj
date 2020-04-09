@@ -273,6 +273,8 @@
     <Content Include="Views\FoodDayItem\Details.cshtml" />
     <Content Include="Views\FoodDayItem\Edit.cshtml" />
     <Content Include="Views\FoodDayItem\Delete.cshtml" />
+    <Content Include="Views\Home\Learn.cshtml" />
+    <Content Include="Views\FoodItem\NonUserIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,10 +11,10 @@ using System.Web.Mvc;
 
 namespace LogIt.WebMVC.Controllers
 {
-    [Authorize]
     public class FoodItemController : Controller
     {
         // GET: FoodItem
+        [Authorize]
         public ActionResult Index()
         {
             var service = CreateFoodItemService();
@@ -23,13 +23,24 @@ namespace LogIt.WebMVC.Controllers
             return View(model);
         }
 
+        // GET: FoodItem (for non-users (not logged in))
+        public ActionResult NonUserIndex()
+        {
+            var service = CreateFoodItemService();
+            var model = service.GetFoodItems();
+
+            return View(model);
+        }
+
         //GET : FoodItem/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
         //GET : FoodItem/Create
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(FoodItemCreate model)
@@ -53,6 +64,7 @@ namespace LogIt.WebMVC.Controllers
         }
 
         //GET : FoodItem/Details
+        [Authorize]
         public ActionResult Details(int id)
         {
             var service = CreateFoodItemService();
@@ -62,6 +74,7 @@ namespace LogIt.WebMVC.Controllers
         }
 
         //GET : FoodItem/Edit
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var service = CreateFoodItemService();
@@ -85,6 +98,7 @@ namespace LogIt.WebMVC.Controllers
         }
 
         //GET : FoodItem/Edit
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FoodItemEdit model)
@@ -110,6 +124,7 @@ namespace LogIt.WebMVC.Controllers
         }
 
         //GET : FoodItem/Delete
+        [Authorize]
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -120,6 +135,7 @@ namespace LogIt.WebMVC.Controllers
         }
 
         //GET : FoodItem/Delete
+        [Authorize]
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

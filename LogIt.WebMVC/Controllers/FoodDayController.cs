@@ -26,6 +26,10 @@ namespace LogIt.WebMVC.Controllers
         //GET : FoodDay/Create
         public ActionResult Create()
         {
+            ApplicationDbContext _db = new ApplicationDbContext();
+            var getProfileList = _db.UserProfiles.ToList();
+            SelectList profileList = new SelectList(getProfileList,"Title");
+            ViewBag.GetProfileList = profileList;
             return View();
         }
 

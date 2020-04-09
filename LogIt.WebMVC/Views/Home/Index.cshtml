@@ -2,23 +2,36 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>LOGIT</h1>
-    <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
-    <p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>
-</div>
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <h1>LOGIT</h1>
+        <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
+        <p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>
+    </div>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <h1>Welcome User</h1>@*see if you can get the user's name to display here*@
+        <p class="lead">Find a way to like the last 5 days of food data to display here or some kind of summary chart.</p>
+        <p>@Html.ActionLink("See Your Recent Progress", "Index", "UserData", null, new { @class = "btn btn-primary btn-large" })</p>
+    </div>
+}
+
 
 <div class="row">
     @if (!User.Identity.IsAuthenticated)
     {
-    <div class="col-md-4">
-        <h2>Register an Account</h2>
-        <p>
-            Join today and begin your food awareness journey!
-        </p>
-        <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
-        <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
-    </div>
+        <div class="col-md-4">
+            <h2>Register an Account</h2>
+            <p>
+                Join today and begin your food awareness journey!
+            </p>
+            <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
+            <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
+        </div>
         <div class="col-md-4">
             <h2>Explore Our Food Database</h2>
             <p>See what food items are currently available to log!</p>

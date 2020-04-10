@@ -20,18 +20,22 @@
 }
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.UserProfileId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+
         @*<th>
-                @Html.DisplayNameFor(model => model.IsStarred)
-            </th>*@
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
         </th>
@@ -43,32 +47,35 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserProfileId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.IsStarred)
-                </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.UserProfileId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId }) |
-                @Html.ActionLink("Create Today From This Profile", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, null)
-            </td>
-        </tr>
+<tr>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.UserProfileId)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Summary)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.IsStarred)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.UserProfileId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId }) |
+        @Html.ActionLink("Create A Day From This Profile", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, null)
+    </td>
+</tr>
     }
 
 </table>

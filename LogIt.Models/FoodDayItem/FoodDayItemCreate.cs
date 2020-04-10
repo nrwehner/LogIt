@@ -12,7 +12,7 @@ namespace LogIt.Models
         [Required]
         [Display(Name = "Food Day Id")]
         public int FoodDayId { get; set; }
-        [Display(Name = "Food Item Name")]
-        public string FoodItemName { get; set; }
+        [Display(Name = "Food Item Id")]
+        public int FoodItemId { get; set; }
     }
 }

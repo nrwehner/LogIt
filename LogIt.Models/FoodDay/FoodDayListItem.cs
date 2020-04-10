@@ -11,6 +11,8 @@ namespace LogIt.Models
     {
         [Display(Name = "Food Day Id")]
         public int FoodDayId { get; set; }
+        [Display(Name = "Date - Profile")]
+        public string DateProfile { get; set; }
         public DateTime Date { get; set; }
         [Display(Name = "Goal Profile Title")]
         public string Title { get; set; }

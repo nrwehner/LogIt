@@ -55,6 +55,7 @@ namespace LogIt.Services
                                 UserProfileId = e.UserProfileId,
                                 Title = e.Title,
                                 Description = e.Description,
+                                Summary = "CALs: " + e.CaloryTarget + ", CARBs: " + e.CarbTarget + ", FIB: " + e.FiberTarget + ", FAT: " + e.FatTarget + ", PROT: " + e.ProteinTarget + ", SOD: " + e.SodiumTarget + ", POT: " + e.PotassiumTarget,
                                 IsStarred = e.IsStarred,
                                 CreatedBy = e.CreatedBy,
                                 CreatedUtc = e.CreatedUtc

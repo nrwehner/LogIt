@@ -204,6 +204,5 @@ namespace LogIt.WebMVC.Controllers
         {
             ViewBag.UserProfileId = new SelectList(new UserProfileService(User.Identity.GetUserId()).GetUserProfiles(), "UserProfileId", "Title",id);
         }
-
     }
 }

@@ -1,22 +1,21 @@
-﻿@model LogIt.Models.FoodDayItemEdit
+﻿@model LogIt.Models.FoodDayItemCreate
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "CreateFoodDayItemFromFoodItem";
 }
 
-<h2>Edit Food Day Item</h2>
+<h2>Create A Food Day Item From FoodItem</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>FoodDayItemEdit</h4>
+    <h4>FoodDayItemCreate</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.FoodDayItemId)
-
+    @Html.HiddenFor(model => model.FoodItemId)
     <div class="form-group">
         @Html.LabelFor(model => model.FoodDayId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -26,24 +25,15 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.FoodItemId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("FoodItemId", null, "Select Food Item", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.FoodItemId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save Changes" class="btn btn-default" />
+            <input type="submit" value="Add Food Item" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Food Item List", "Index","FoodItem")
 </div>
 
 @section Scripts {

@@ -61,6 +61,7 @@ namespace LogIt.Services
                             new FoodDayListItem
                             {
                                 FoodDayId = e.FoodDayId,
+                                DateProfile = e.Date + " - " + e.UserProfile.Title,
                                 Date = e.Date,
                                 Title = e.UserProfile.Title,
                                 Description = e.UserProfile.Description,

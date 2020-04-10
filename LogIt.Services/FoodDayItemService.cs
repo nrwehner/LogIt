@@ -25,7 +25,7 @@ namespace LogIt.Services
                 new FoodDayItem()
                 {
                     FoodDayId = model.FoodDayId,
-                    FoodItemId = _db.FoodItems.FirstOrDefault(e => e.Name == model.FoodItemName).FoodItemId,//this needs to be looked into - if food item name gets used twice, this could cause issues with selecting the right one - dropdown solves it?
+                    FoodItemId = model.FoodItemId,
                     CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -126,16 +126,15 @@ namespace LogIt.Services
                 };
         }
 
-        public bool UpdateFoodDayItem(FoodDayItemEdit model)//this is only allowing the user to change the food item - 
-            //if you want to be able to change the foodday also, do separate method - i'm not sure if you would ever want to do that, 
-            //though - you will always be adding, editng, and deleting foodayitems within a specific foodday
+        public bool UpdateFoodDayItem(FoodDayItemEdit model)
         {
             var entity =
                 _db
                     .FoodDayItems
                     .Single(e => e.FoodDayItemId == model.FoodDayItemId);
 
-            entity.FoodItemId = _db.FoodItems.FirstOrDefault(e => e.Name == model.FoodItemName).FoodItemId;
+            entity.FoodItemId = model.FoodItemId;
+            entity.FoodDayId = model.FoodDayId;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

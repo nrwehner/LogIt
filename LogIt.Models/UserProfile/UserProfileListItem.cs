@@ -15,6 +15,8 @@ namespace LogIt.Models.UserProfile
         public string Title { get; set; }
         [Display(Name = "Profile Description")]
         public string Description { get; set; }
+        [Display(Name = "Profile Targets")]
+        public string Summary { get; set; }
         [UIHint("Starred")]
         public bool IsStarred { get; set; }
         [Display(Name = "Created By")]

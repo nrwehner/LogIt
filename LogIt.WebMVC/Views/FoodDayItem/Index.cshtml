@@ -20,21 +20,21 @@
 }
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FoodDayItemId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FoodDayId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProfileTitle)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FoodItemId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FoodItemName)
         </th>
@@ -50,21 +50,21 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.FoodDayItemId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodDayId)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProfileTitle)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.FoodItemId)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FoodItemName)
             </td>

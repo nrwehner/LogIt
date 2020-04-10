@@ -14,6 +14,8 @@ namespace LogIt.Models
         //public virtual ICollection<FoodDayItem> FoodDayItems { get; set; } //maybe use this at some point to create a 
         //field that can count how many food items are in the day or even potentially pull summary data (calories, carbs, etc) for the day?
         public DateTime Date { get; set; }
+        [Display(Name = "Goal Profile Id")]
+        public int UserProfileId { get; set; }
         [Display(Name = "Goal Profile Title")]
         public string ProfileTitle { get; set; }
         [Display(Name = "Goal Profile Description")]

@@ -26,10 +26,7 @@ namespace LogIt.WebMVC.Controllers
         //GET : FoodDay/Create
         public ActionResult Create()
         {
-            ApplicationDbContext _db = new ApplicationDbContext();
-            var getProfileList = _db.UserProfiles.ToList();
-            SelectList profileList = new SelectList(getProfileList,"Title");
-            ViewBag.GetProfileList = profileList;
+            PopulateUserProfiles();
             return View();
         }
 
@@ -40,6 +37,7 @@ namespace LogIt.WebMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                PopulateUserProfiles();
                 return View(model);
             }
 
@@ -52,6 +50,8 @@ namespace LogIt.WebMVC.Controllers
             };
 
             ModelState.AddModelError("", "Your Food Day could not be created.");
+
+            PopulateUserProfiles();
 
             return View(model);
         }
@@ -126,9 +126,11 @@ namespace LogIt.WebMVC.Controllers
                 new FoodDayEdit
                 {
                     FoodDayId = detail.FoodDayId,
-                    ProfileTitle = detail.ProfileTitle,
+                    UserProfileId = detail.UserProfileId,
                     Date = detail.Date
                 };
+
+            PopulateUserProfiles(detail.UserProfileId);
 
             return View(model);
         }
@@ -138,10 +140,14 @@ namespace LogIt.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FoodDayEdit model)
         {
-            if (!ModelState.IsValid) return View(model);
-
+            if (!ModelState.IsValid)
+            {
+                PopulateUserProfiles(model.UserProfileId);
+                return View(model);
+            }
             if (model.FoodDayId != id)
             {
+                PopulateUserProfiles(model.UserProfileId);
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
@@ -154,6 +160,7 @@ namespace LogIt.WebMVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            PopulateUserProfiles(model.UserProfileId);
             ModelState.AddModelError("", "Your Food Day could not be updated.");
             return View(model);
         }
@@ -188,5 +195,15 @@ namespace LogIt.WebMVC.Controllers
             var service = new FoodDayService(userId);
             return service;
         }
+
+        private void PopulateUserProfiles()
+        {
+            ViewBag.UserProfileId = new SelectList(new UserProfileService(User.Identity.GetUserId()).GetUserProfiles(), "UserProfileId", "Title");
+        }
+        private void PopulateUserProfiles(int id)
+        {
+            ViewBag.UserProfileId = new SelectList(new UserProfileService(User.Identity.GetUserId()).GetUserProfiles(), "UserProfileId", "Title",id);
+        }
+
     }
 }

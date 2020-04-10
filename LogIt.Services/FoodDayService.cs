@@ -19,12 +19,12 @@ namespace LogIt.Services
             _userId = userId;
         }
 
-        public bool CreateFoodDay(FoodDayCreate model)
+        public bool CreateFoodDay(FoodDayCreate model)//needs to take in the id not the title
         {
             var entity =
                 new FoodDay()
                 {
-                    UserProfileId = _db.UserProfiles.FirstOrDefault(e => e.Title==model.ProfileTitle).UserProfileId,//this needs to be looked into - if profile title gets used twice, this could cause issues
+                    UserProfileId = model.UserProfileId,
                     Date = model.Date,
                     CreatedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName,
                     CreatedUtc = DateTimeOffset.Now
@@ -101,6 +101,7 @@ namespace LogIt.Services
                 {
                     FoodDayId = entity.FoodDayId,
                     Date = entity.Date,
+                    UserProfileId=entity.UserProfileId,
                     ProfileTitle = entity.UserProfile.Title,
                     ProfileDescription = entity.UserProfile.Description,
                     ProfileCalories = entity.UserProfile.CaloryTarget,
@@ -138,8 +139,8 @@ namespace LogIt.Services
                     .FoodDays
                     .Single(e => e.FoodDayId == model.FoodDayId);
 
+            entity.UserProfileId = model.UserProfileId;
             entity.Date = model.Date;
-            entity.UserProfileId = _db.UserProfiles.FirstOrDefault(e => e.Title == model.ProfileTitle).UserProfileId;
             entity.ModifiedBy = _db.Users.Find(_userId).FirstName + " " + _db.Users.Find(_userId).LastName;
             entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

@@ -5,245 +5,123 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Food Day Details</h2>
+<div>
+
+    <h2>@Html.DisplayFor(model => model.Date) - @Html.DisplayFor(model => model.ProfileTitle)</h2>
+    <h4>
+        TARGETS:
+    </h4>
+    <table>
+        <tr>
+            <th>Calories   </th>
+            <th>     |     </th>
+            <th>   Net Carbs   </th>
+            <th>     |     </th>
+            <th>   Fiber   </th>
+            <th>     |     </th>
+            <th>   Fat   </th>
+            <th>     |     </th>
+            <th>   Protein   </th>
+            <th>     |     </th>
+            <th>   Sodium   </th>
+            <th>     |     </th>
+            <th>   Potassium   </th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.ProfileCalories)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfileCarbs)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfileFiber)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfileFat)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfileProtein)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfileSodium)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProfilePotassium)</td>
+        </tr>
+    </table>
+</div>
+
+<hr />
+
+<div>Food Items</div>
+
+<hr />
 
 <div>
-    <h4>FoodDayDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FoodDayId)
-        </dt>
+    <h4>
+        Sums:
+    </h4>
+    <table>
+        <tr>
+            <th>Calories   </th>
+            <th>     |     </th>
+            <th>   Net Carbs   </th>
+            <th>     |     </th>
+            <th>   Fiber   </th>
+            <th>     |     </th>
+            <th>   Fat   </th>
+            <th>     |     </th>
+            <th>   Protein   </th>
+            <th>     |     </th>
+            <th>   Sodium   </th>
+            <th>     |     </th>
+            <th>   Potassium   </th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.CarbsSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FiberSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FatSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProteinSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.SodiumSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.CaloriesDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.CarbsDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FiberDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FatDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProteinDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.SodiumDiff)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.PotassiumDiff)</td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.FoodDayId)
-        </dd>
+    </table>
+</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileCalories)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileCalories)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CaloriesSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CaloriesSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CaloriesDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CaloriesDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileCarbs)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileCarbs)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarbsSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarbsSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarbsDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarbsDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileFiber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileFiber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FiberSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FiberSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FiberDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FiberDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileFat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileFat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FatSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FatSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FatDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FatDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileProtein)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileProtein)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProteinSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProteinSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProteinDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProteinDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileSodium)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileSodium)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SodiumSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SodiumSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SodiumDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SodiumDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfilePotassium)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfilePotassium)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PotassiumSum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PotassiumSum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PotassiumDiff)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PotassiumDiff)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
+<div>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedUtc)</th>
+            <th>@Html.DisplayNameFor(model => model.ModifiedBy)</th>
+            <th>@Html.DisplayNameFor(model => model.ModifiedUtc)</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.CreatedBy)</td>
+            <td>@Html.DisplayFor(model => model.CreatedUtc)</td>
+            <td>@Html.DisplayFor(model => model.ModifiedBy)</td>
+            <td>@Html.DisplayFor(model => model.ModifiedUtc)</td>
+        </tr>
+    </table>
 </div>
 <p>
     @*//maybe a an if statement here to only display edit if you created it, and also a duplicate option?*@

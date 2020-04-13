@@ -27,6 +27,7 @@ namespace LogIt.WebMVC.Controllers
         public ActionResult Create()
         {
             PopulateUserProfiles();
+            PopulateDateList();
             return View();
         }
 
@@ -38,6 +39,7 @@ namespace LogIt.WebMVC.Controllers
             if (!ModelState.IsValid)
             {
                 PopulateUserProfiles();
+                PopulateDateList();
                 return View(model);
             }
 
@@ -68,7 +70,7 @@ namespace LogIt.WebMVC.Controllers
                     ProfileTitle = ctx.UserProfiles.Find(profId).Title,
                     Date = DateTime.Now
                 };
-
+            PopulateDateList();
             return View(model);
         }
         //GET : FoodDay/CreateFoodDay(from Profile)
@@ -78,6 +80,7 @@ namespace LogIt.WebMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                PopulateDateList();
                 return View(model);
             }
 
@@ -91,6 +94,7 @@ namespace LogIt.WebMVC.Controllers
                 //those are the only parameters needed from the user - but then again, if the user isn't creating the foodday for today
                 //how do i get the date parameter from them without a foodday creation landing page?
             {
+                PopulateDateList();
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
@@ -102,6 +106,8 @@ namespace LogIt.WebMVC.Controllers
                 TempData["SaveResult"] = "Your Food Day was created.";
                 return RedirectToAction("Index");
             };
+
+            PopulateDateList();
 
             ModelState.AddModelError("", "Your Food Day could not be created.");
 
@@ -129,7 +135,7 @@ namespace LogIt.WebMVC.Controllers
                     UserProfileId = detail.UserProfileId,
                     Date = detail.Date
                 };
-
+            PopulateDateList();
             PopulateUserProfiles(detail.UserProfileId);
 
             return View(model);
@@ -142,11 +148,13 @@ namespace LogIt.WebMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                PopulateDateList();
                 PopulateUserProfiles(model.UserProfileId);
                 return View(model);
             }
             if (model.FoodDayId != id)
             {
+                PopulateDateList();
                 PopulateUserProfiles(model.UserProfileId);
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -160,6 +168,7 @@ namespace LogIt.WebMVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            PopulateDateList();
             PopulateUserProfiles(model.UserProfileId);
             ModelState.AddModelError("", "Your Food Day could not be updated.");
             return View(model);
@@ -204,5 +213,18 @@ namespace LogIt.WebMVC.Controllers
         {
             ViewBag.UserProfileId = new SelectList(new UserProfileService(User.Identity.GetUserId()).GetUserProfiles(), "UserProfileId", "Title",id);
         }
+        private void PopulateDateList()
+        {
+                List<DateTime> list = new List<DateTime>();
+                DateTime start = DateTime.Now.Add(new TimeSpan(-5, 0, 0, 0));
+                DateTime end = DateTime.Now.Add(new TimeSpan(365, 0, 0, 0));
+                while (start < end)
+                {
+                    list.Add(start);
+                    start = start.Add(new TimeSpan(1, 0, 0, 0));
+                }
+            ViewBag.DateList = new SelectList(list,"Date");
+        }
+
     }
 }

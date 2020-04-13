@@ -105,7 +105,7 @@ namespace LogIt.Services
                     Date = entity.Date,
                     UserProfileId=entity.UserProfileId,
                     ProfileTitle = entity.UserProfile.Title,
-                    FoodDayItems= new FoodDayItemService(_userId).GetFoodDayItemsByFoodDay(entity.FoodDayId),
+                    FoodDayItems= new FoodDayItemService(_userId).GetFoodDayItemsDetailByFoodDay(entity.FoodDayId),
                     ProfileDescription = entity.UserProfile.Description,
                     ProfileCalories = entity.UserProfile.CaloryTarget,
                     CaloriesSum = calSum,

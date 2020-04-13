@@ -29,13 +29,13 @@ namespace LogIt.WebMVC.Controllers
             return PartialView(model);
         }
 
-        public ActionResult IndexFoodDay(int foodDayId)
+        public ActionResult IndexFoodDayItemDetail(IEnumerable<FoodDayItem> list)
         {
             var service = CreateFoodDayItemService();
-            var model = service.GetFoodDayItemsByFoodDay(foodDayId);
-            //return service.GetFoodDayItemsByFoodDay(foodDayId);
+            var model = service.GetFoodDayItemsDetail(list);
 
-            return View(model);
+            return PartialView(model);
+
         }
 
 

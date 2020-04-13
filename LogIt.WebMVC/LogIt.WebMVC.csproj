@@ -70,6 +70,9 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -255,8 +258,7 @@
     <Content Include="Views\FoodItem\Details.cshtml" />
     <Content Include="Views\FoodItem\Edit.cshtml" />
     <Content Include="Views\FoodItem\Delete.cshtml" />
-    <Content Include="Views\Shared\Display Templates\DateTimeOffset.cshtml" />
-    <Content Include="Views\Shared\Display Templates\Starred.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\Create.cshtml" />
     <Content Include="Views\UserProfile\Details.cshtml" />
@@ -277,8 +279,9 @@
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\FoodItem\NonUserIndex.cshtml" />
     <Content Include="Views\FoodDayItem\CreateFoodDayItemFromFoodItem.cshtml" />
-    <Content Include="Views\FoodDayItem\IndexFoodDay.cshtml" />
-    <Content Include="Views\FoodDay\IndexPartial.cshtml" />
+    <Content Include="Views\FoodDay\IndexPartial_FoodDayItemListItem.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

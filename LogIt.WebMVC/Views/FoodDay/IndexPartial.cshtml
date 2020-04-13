@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<LogIt.Models.FoodDayItemListItem>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@*<p>
+    @Html.ActionLink("Create New", "Create")   ///maybe re-work this to be able to add a new food item to this day and add to bottom of table
+</p>*@
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FoodDayItemId)
         </th>
         <th>
@@ -19,7 +19,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FoodItemId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FoodItemName)
         </th>
@@ -34,7 +34,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.FoodDayItemId)
         </td>
         <td>
@@ -48,7 +48,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FoodItemId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.FoodItemName)
         </td>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.CreatedUtc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit","FoodDayItem", new { id=item.FoodDayItemId },null) |
+            @Html.ActionLink("Details", "Details","FoodDayItem", new { id=item.FoodDayItemId },null) |
+            @Html.ActionLink("Delete", "Delete","FoodDayItem", new { id=item.FoodDayItemId },null)
         </td>
     </tr>
 }

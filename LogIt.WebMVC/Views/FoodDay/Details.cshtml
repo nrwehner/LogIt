@@ -8,11 +8,9 @@
 <div>
 
     <h2>@Html.DisplayFor(model => model.Date) - @Html.DisplayFor(model => model.ProfileTitle)</h2>
-    <h4>
-        TARGETS:
-    </h4>
     <table>
         <tr>
+            <th></th>
             <th>Calories   </th>
             <th>     |     </th>
             <th>   Net Carbs   </th>
@@ -28,6 +26,7 @@
             <th>   Potassium   </th>
         </tr>
         <tr>
+            <td><b>Targets:   </b></td>
             <td>@Html.DisplayFor(model => model.ProfileCalories)</td>
             <td></td>
             <td>@Html.DisplayFor(model => model.ProfileCarbs)</td>
@@ -42,43 +41,8 @@
             <td></td>
             <td>@Html.DisplayFor(model => model.ProfilePotassium)</td>
         </tr>
-    </table>
-</div>
-
-<hr />
-
-<div>
-    Food Items
-    @Html.ActionLink("Food Items", "IndexFoodDay","FoodDayItem", new { foodDayId = Model.FoodDayId },null)
-    @*@Html.RenderAction("IndexFoodDay", "FoodDayItem",new { foodDayId=Model.FoodDayId })*@
-    @Html.Partial("IndexPartial", Model.FoodDayItems)
-    @*new { foodDayId=Model.FoodDayId }*@
-    @*@Html.RenderAction("Index", "FoodDayItem")*@
-</div>
-
-<hr />
-
-<div>
-    <h4>
-        Sums:
-    </h4>
-    <table>
         <tr>
-            <th>Calories   </th>
-            <th>     |     </th>
-            <th>   Net Carbs   </th>
-            <th>     |     </th>
-            <th>   Fiber   </th>
-            <th>     |     </th>
-            <th>   Fat   </th>
-            <th>     |     </th>
-            <th>   Protein   </th>
-            <th>     |     </th>
-            <th>   Sodium   </th>
-            <th>     |     </th>
-            <th>   Potassium   </th>
-        </tr>
-        <tr>
+            <td><b>Actual:   </b></td>
             <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
             <td></td>
             <td>@Html.DisplayFor(model => model.CarbsSum)</td>
@@ -94,6 +58,7 @@
             <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
         </tr>
         <tr>
+            <td><b>Diff:   </b></td>
             <td>@Html.DisplayFor(model => model.CaloriesDiff)</td>
             <td></td>
             <td>@Html.DisplayFor(model => model.CarbsDiff)</td>
@@ -108,7 +73,39 @@
             <td></td>
             <td>@Html.DisplayFor(model => model.PotassiumDiff)</td>
         </tr>
+    </table>
+</div>
 
+<hr />
+
+<div>
+    @*@Html.ActionLink("Food Items", "IndexFoodDay","FoodDayItem", new { foodDayId = Model.FoodDayId },null)*@
+    @*@Html.RenderAction("IndexFoodDay", "FoodDayItem",new { foodDayId=Model.FoodDayId })*@
+    @Html.Partial("IndexPartial", Model.FoodDayItems)
+    @*new { foodDayId=Model.FoodDayId }*@
+    @*@Html.RenderAction("Index", "FoodDayItem")*@
+</div>
+
+<hr />
+
+<div>
+    <table>
+        <tr>
+            <td><b>Total:   </b></td>
+            <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.CarbsSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FiberSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.FatSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.ProteinSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.SodiumSum)</td>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
+        </tr>
     </table>
 </div>
 

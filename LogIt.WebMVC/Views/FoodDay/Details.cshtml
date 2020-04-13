@@ -81,7 +81,7 @@
 <div>
     @*@Html.ActionLink("Food Items", "IndexFoodDay","FoodDayItem", new { foodDayId = Model.FoodDayId },null)*@
     @*@Html.RenderAction("IndexFoodDay", "FoodDayItem",new { foodDayId=Model.FoodDayId })*@
-    @Html.Partial("IndexPartial", Model.FoodDayItems)
+    @Html.Partial("IndexPartial_FoodDayItemDetail", Model.FoodDayItems)
     @*new { foodDayId=Model.FoodDayId }*@
     @*@Html.RenderAction("Index", "FoodDayItem")*@
 </div>

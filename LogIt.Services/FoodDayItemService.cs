@@ -54,6 +54,16 @@ namespace LogIt.Services
 
             return query.ToArray();
         }
+        public IEnumerable<FoodDayItemDetail> GetFoodDayItemsDetail(IEnumerable<FoodDayItemListItem> list)
+        {
+            List<FoodDayItemDetail> finalList = new List<FoodDayItemDetail>();
+            foreach(FoodDayItemListItem item in list)
+            {
+                finalList.Add(GetFoodDayItemById(item.FoodDayItemId));
+            };
+
+            return finalList;
+        }
         public IEnumerable<FoodDayItemListItem> GetAllFoodDayItemsForUser()
         {
             var query =
@@ -100,6 +110,12 @@ namespace LogIt.Services
                     );
 
             return query.ToArray();
+        }
+
+        public IEnumerable<FoodDayItemDetail> GetFoodDayItemsDetailByFoodDay(int foodDayId)
+        {
+            IEnumerable<FoodDayItemListItem> list = GetFoodDayItemsByFoodDay(foodDayId);
+            return GetFoodDayItemsDetail(list);
         }
 
         public FoodDayItemDetail GetFoodDayItemById(int id)

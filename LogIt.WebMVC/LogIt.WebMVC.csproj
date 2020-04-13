@@ -276,8 +276,8 @@
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\FoodItem\NonUserIndex.cshtml" />
     <Content Include="Views\FoodDayItem\CreateFoodDayItemFromFoodItem.cshtml" />
-    <Content Include="Views\FoodDayItem\IndexFoodDay.cshtml" />
-    <Content Include="Views\FoodDay\IndexPartial.cshtml" />
+    <Content Include="Views\FoodDay\IndexPartial_FoodDayItemListItem.cshtml" />
+    <Content Include="Views\FoodDayItem\IndexPartial_FoodDayItemDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

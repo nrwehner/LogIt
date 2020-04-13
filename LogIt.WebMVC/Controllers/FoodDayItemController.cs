@@ -21,6 +21,23 @@ namespace LogIt.WebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult IndexDay(IEnumerable<FoodDayItem> list)
+        {
+            var service = CreateFoodDayItemService();
+            var model = service.GetFoodDayItems(list);
+
+            return PartialView(model);
+        }
+
+        public ActionResult IndexFoodDay(int foodDayId)
+        {
+            var service = CreateFoodDayItemService();
+            var model = service.GetFoodDayItemsByFoodDay(foodDayId);
+            //return service.GetFoodDayItemsByFoodDay(foodDayId);
+
+            return View(model);
+        }
+
 
         //GET : FoodDayItem/Create          //probably won't ever need to use this
         public ActionResult Create()

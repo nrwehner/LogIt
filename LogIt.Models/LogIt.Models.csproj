@@ -89,5 +89,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogIt.Data\LogIt.Data.csproj">
+      <Project>{6117F921-F280-48AF-B0E6-DFD3AA164CE1}</Project>
+      <Name>LogIt.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,27 @@ namespace LogIt.Services
             _db.FoodDayItems.Add(entity);
             return _db.SaveChanges() == 1;
         }
+        public IEnumerable<FoodDayItemListItem> GetFoodDayItems(IEnumerable<FoodDayItem> list)
+        {
+            var query =
+                    list
+                    .Select(
+                        e =>
+                            new FoodDayItemListItem
+                            {
+                                FoodDayItemId = e.FoodDayItemId,
+                                FoodDayId = e.FoodDayId,
+                                Date = e.FoodDay.Date,
+                                ProfileTitle = e.FoodDay.UserProfile.Title,
+                                FoodItemId = e.FoodItemId,
+                                FoodItemName = e.FoodItem.Name,
+                                CreatedBy = e.CreatedBy,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                    );
+
+            return query.ToArray();
+        }
         public IEnumerable<FoodDayItemListItem> GetAllFoodDayItemsForUser()
         {
             var query =

@@ -76,6 +76,7 @@ namespace LogIt.Services
         public FoodDayDetail GetFoodDayById(int id)
 
         {
+            var fDsvc = new FoodDayItemService(_userId);
             var entity =
                 _db
                     .FoodDays
@@ -104,6 +105,7 @@ namespace LogIt.Services
                     Date = entity.Date,
                     UserProfileId=entity.UserProfileId,
                     ProfileTitle = entity.UserProfile.Title,
+                    FoodDayItems= new FoodDayItemService(_userId).GetFoodDayItemsByFoodDay(entity.FoodDayId),
                     ProfileDescription = entity.UserProfile.Description,
                     ProfileCalories = entity.UserProfile.CaloryTarget,
                     CaloriesSum = calSum,

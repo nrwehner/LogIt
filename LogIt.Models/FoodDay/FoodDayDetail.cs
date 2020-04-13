@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogIt.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace LogIt.Models
     {
         [Display(Name = "Food Day Id")]
         public int FoodDayId { get; set; }
-        //public virtual ICollection<FoodDayItem> FoodDayItems { get; set; } //maybe use this at some point to create a 
+        public IEnumerable<FoodDayItemListItem> FoodDayItems { get; set; } //maybe use this at some point to create a 
         //field that can count how many food items are in the day or even potentially pull summary data (calories, carbs, etc) for the day?
         public DateTime Date { get; set; }
         [Display(Name = "Goal Profile Id")]

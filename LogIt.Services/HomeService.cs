@@ -16,13 +16,15 @@ namespace LogIt.Services
 
         public HomeIndex GetModel()
         {
-            return 
-                new HomeIndex 
-                { 
-                   Object = new HomeObject
-                   {
-                       UserId=_userId,
-                       Today=_today
+            return
+                new HomeIndex
+                {
+                    Object = new HomeObject
+                    {
+                        UserId = _userId,
+                        Today = _today,
+                        Profiles = new UserProfileService(_userId).GetUserProfiles(),
+                        FoodDays = new FoodDayService(_userId).GetFoodDays()
                    }
                 };
         }

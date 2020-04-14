@@ -3,6 +3,22 @@
 <div class="welcome">
     <h1>Welcome, @ViewBag.FullName!</h1>
     <p class="lead">Let's get to work on today!</p>
+    @if (Model.FoodDays.Count() < 1)
+    {
+
+        if (Model.Profiles.Count() < 1)
+        {
+            <p>You do not have any profiles - make one! (link to make a profile)</p>
+        }
+        if (Model.Profiles.Count() >= 1)
+        {
+            <p>You do not have any days - make one! (partial to profiles)</p>
+        }
+    }
+    @if (Model.FoodDays.Count() >= 1)
+    {
+        <p>You have food days! (partial to foodday list)</p>
+    }
     <p>
         @Model.Today
         @Model.UserId

@@ -6,10 +6,13 @@
 body div{
 }
 
-.welcome{
+#navbarmychanges{
+    background-color: black;
+}
+.welcome {
     /*text-align:center;*/
     /*border:2px solid black;*/
-    padding:5px;
+    padding: 5px;
 }
 .partiallist h2{
     text-align:center;

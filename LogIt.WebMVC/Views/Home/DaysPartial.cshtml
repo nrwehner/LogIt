@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LogIt.Models.FoodDayListItem>
 
 <p>
-    @Html.ActionLink("Create New Day", "Create","FoodDay")
+    @Html.ActionLink("Create New Day","Create","FoodDay",null,new { @class = "btn btn-primary btn-large" })
 </p>
 <table class="table">
     <tr>
@@ -26,6 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
+        <th></th>
         <th></th>
     </tr>
 
@@ -53,10 +54,12 @@
             @Html.DisplayFor(modelItem => item.CreatedUtc)
         </td>
         <td>
+            @Html.ActionLink("Add A Food Item", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, new { @class = "btn btn-primary btn-large" })
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", "FoodDay", new { id = item.FoodDayId }, null) |
             @Html.ActionLink("Details", "Details", "FoodDay", new { id = item.FoodDayId }, null) |
-            @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null) |
-            @Html.ActionLink("Add A Food Item To This Day", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, null)
+            @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null)
         </td>
     </tr>
 }

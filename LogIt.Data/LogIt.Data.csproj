@@ -70,6 +70,7 @@
     <Compile Include="FoodDayItem.cs" />
     <Compile Include="FoodDay.cs" />
     <Compile Include="FoodItem.cs" />
+    <Compile Include="ICreateModify.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202003312053034_InitialCreate.cs" />
     <Compile Include="Migrations\202003312053034_InitialCreate.Designer.cs">

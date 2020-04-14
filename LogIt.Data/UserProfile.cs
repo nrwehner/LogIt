@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LogIt.Data
 {
-    public class UserProfile
+    public class UserProfile : ICreateModify
     {
         [Key]
         public int UserProfileId { get; set; }

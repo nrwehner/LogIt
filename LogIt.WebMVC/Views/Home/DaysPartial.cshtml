@@ -55,7 +55,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", "FoodDay", new { id = item.FoodDayId }, null) |
             @Html.ActionLink("Details", "Details", "FoodDay", new { id = item.FoodDayId }, null) |
-            @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null)
+            @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null) |
             @Html.ActionLink("Add A Food Item To This Day", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, null)
         </td>
     </tr>

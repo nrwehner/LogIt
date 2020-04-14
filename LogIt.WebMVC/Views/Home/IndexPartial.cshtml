@@ -16,7 +16,10 @@
                 <p>6. Add Food Items to our database that we don't already have</p>
 
                 <p>You do not have any profiles - let's get on that!</p>
-                @Html.Partial("ProfilesPartial", Model.Profiles)
+                <div class="partiallist">
+                    <h2>Profiles</h2>
+                    @Html.Partial("ProfilesPartial", Model.Profiles)
+                </div>
             }
             if (Model.Profiles.Count() >= 1)
             {
@@ -31,8 +34,14 @@
                 <p>You haven't made any days yet - let's get on that!</p>
                 <p>Pick one of your profiles below, or build a new profile to use:</p>
 
-                @Html.Partial("ProfilesPartial", Model.Profiles)
-                @Html.Partial("DaysPartial", Model.FoodDays)
+                <div class="partiallist">
+                    <h2>Profiles</h2>
+                    @Html.Partial("ProfilesPartial", Model.Profiles)
+                </div>
+                <div class="partiallist">
+                    <h2>Days</h2>
+                    @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
             }
         }
         @if (Model.FoodDays.Count() >= 1)
@@ -46,7 +55,16 @@
             <p>6. Add Food Items to our database that we don't already have</p>
             <br />*@
             <p>Pick one of your Days below to edit or build a new day from one of your profiles below</p>
-            @Html.Partial("DaysPartial", Model.FoodDays)
+            <div class="partiallist">
+                <h2>Profiles</h2>
+                @Html.Partial("ProfilesPartial", Model.Profiles)
+            </div>
+            <div class="partiallist">
+                <h2>Days</h2>
+                @Html.Partial("DaysPartial", Model.FoodDays)
+            </div>
         }
+        @*A Partial for showing today if there is one
+        @if(Model.Today ==(search in Model.FoodDays)(also need to just pull M,D,Y since DateTime is time too))*@
         @*<p>@Html.ActionLink("See Your Recent Progress", "Index", "UserData", null, new { @class = "btn btn-primary btn-large" })</p>*@
     </div>

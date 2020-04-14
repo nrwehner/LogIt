@@ -3,20 +3,27 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+<span class="todayis">Today is @Model.Object.Today</span>
 @if (!User.Identity.IsAuthenticated)
 {
-    <div class="jumbotron">
-        <h1>LOGIT</h1>
-        <span>Today is @Model.Object.Today</span>
-        <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
-        <p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>
-    </div>
+<div class="welcome">
+    <h1>Welcome, New User!</h1>
+    <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
+    @*<p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>*@
+    <p><b>LOGIT Checklist:</b></p>
+    <p>1. Check out our Food Database (Below) and get a feel for what we're payting attention to</p>
+    <p>2. Register Your Account (Below)</p>
+    <p>3. Build a Profile</p>
+    <p>4. Build a Day</p>
+    <p>5. Add Food Items to your day</p>
+    <p>6. Add Food Items to our database that we don't already have</p>
+
+</div>
 }
 
 @if (User.Identity.IsAuthenticated)
 {
-    @Html.Partial("IndexPartial",Model.Object)
+    @Html.Partial("IndexPartial", Model.Object)
 }
 
 
@@ -45,11 +52,11 @@
             <p>See what food items are currently available to log, research your favorite foods, and add the nutritional information right in this app to begin using them in your food plans!</p>
             <p>@Html.ActionLink("Food Items", "Index", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
         </div>
-        <div class="col-md-4">
+        @*<div class="col-md-4">
             <h2>Plan Your Day</h2>
             <p>Select your goal profile, and plan out what you will eat today, and beyond!</p>
             <p>@Html.ActionLink("Make a Profile", "Index", "UserProfile", null, new { @class = "btn btn-primary btn-large" })</p>
             <p>@Html.ActionLink("Make a Day", "Index", "FoodDay", null, new { @class = "btn btn-primary btn-large" })</p>
-        </div>
+        </div>*@
     }
 </div>

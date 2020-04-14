@@ -1,5 +1,7 @@
 ﻿using LogIt.Data;
+using LogIt.Models;
 using LogIt.Models.Home;
+using LogIt.Models.UserProfile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,16 @@ namespace LogIt.Services
                    }
                 };
         }
+
+        public IEnumerable<UserProfileListItem> GetProfiles()
+        {
+           return new UserProfileService(_userId).GetUserProfiles();
+        }
+        public IEnumerable<FoodDayListItem> GetDays()
+        {
+            return new FoodDayService(_userId).GetFoodDays();
+        }
+
 
         public HomeService(string userId,DateTime today)
         {

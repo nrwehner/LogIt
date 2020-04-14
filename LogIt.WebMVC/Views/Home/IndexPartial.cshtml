@@ -1,27 +1,52 @@
 ﻿@model LogIt.Models.Home.HomeObject
 
-<div class="welcome">
-    <h1>Welcome, @ViewBag.FullName!</h1>
-    <p class="lead">Let's get to work on today!</p>
-    @if (Model.FoodDays.Count() < 1)
-    {
+    <div class="welcome">
+        <h1>Welcome, @ViewBag.FullName!</h1>
+        <p class="lead">Let's get to work!</p>
+        @if (Model.FoodDays.Count() < 1)
+        {
+            if (Model.Profiles.Count() < 1)
+            {
+                <p><b>LOGIT Checklist:</b></p>
+                <p><strike>1. Check out our Food Database</strike></p>
+                <p><strike>2. Register Your Account</strike></p>
+                <p>3. Build a Profile</p>
+                <p>4. Build a Day</p>
+                <p>5. Add Food Items to your day</p>
+                <p>6. Add Food Items to our database that we don't already have</p>
 
-        if (Model.Profiles.Count() < 1)
-        {
-            <p>You do not have any profiles - make one! (link to make a profile)</p>
+                <p>You do not have any profiles - let's get on that!</p>
+                @Html.Partial("ProfilesPartial", Model.Profiles)
+            }
+            if (Model.Profiles.Count() >= 1)
+            {
+                <p><b>LOGIT Checklist:</b></p>
+                <p><strike>1. Check out our Food Database</strike></p>
+                <p><strike>2. Register Your Account</strike></p>
+                <p><strike>3. Build a Profile</strike></p>
+                <p>4. Build a Day</p>
+                <p>5. Add Food Items to your day</p>
+                <p>6. Add Food Items to our database that we don't already have</p>
+                <br />
+                <p>You haven't made any days yet - let's get on that!</p>
+                <p>Pick one of your profiles below, or build a new profile to use:</p>
+
+                @Html.Partial("ProfilesPartial", Model.Profiles)
+                @Html.Partial("DaysPartial", Model.FoodDays)
+            }
         }
-        if (Model.Profiles.Count() >= 1)
+        @if (Model.FoodDays.Count() >= 1)
         {
-            <p>You do not have any days - make one! (partial to profiles)</p>
+            @*<p><b>LOGIT Checklist:</b></p>
+            <p><strike>1. Check out our Food Database</strike></p>
+            <p><strike>2. Register Your Account</strike></p>
+            <p><strike>3. Build a Profile</strike></p>
+            <p><strike>4. Build a Day</strike></p>
+            <p>5. Add Food Items to your day</p>
+            <p>6. Add Food Items to our database that we don't already have</p>
+            <br />*@
+            <p>Pick one of your Days below to edit or build a new day from one of your profiles below</p>
+            @Html.Partial("DaysPartial", Model.FoodDays)
         }
-    }
-    @if (Model.FoodDays.Count() >= 1)
-    {
-        <p>You have food days! (partial to foodday list)</p>
-    }
-    <p>
-        @Model.Today
-        @Model.UserId
-    </p>
-    @*<p>@Html.ActionLink("See Your Recent Progress", "Index", "UserData", null, new { @class = "btn btn-primary btn-large" })</p>*@
-</div>
+        @*<p>@Html.ActionLink("See Your Recent Progress", "Index", "UserData", null, new { @class = "btn btn-primary btn-large" })</p>*@
+    </div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LogIt.Models.UserProfile.UserProfileListItem>
+
+<p>
+    @Html.ActionLink("Create New Profile", "Create","UserProfile")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.UserProfileId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.UserProfileId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Summary)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsStarred)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>*@
+    <td>
+        @Html.ActionLink("Edit", "Edit", "UserProfile", new { id = item.UserProfileId }, null) |
+        @Html.ActionLink("Details", "Details", "UserProfile", new { id = item.UserProfileId }, null) |
+        @Html.ActionLink("Delete", "Delete", "UserProfile", new { id = item.UserProfileId }, null) |
+        @Html.ActionLink("Create A Day From This Profile", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, null)
+    </td>
+    </tr>
+}
+
+</table>

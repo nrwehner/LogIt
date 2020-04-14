@@ -24,6 +24,21 @@ namespace LogIt.WebMVC.Controllers
             return PartialView();
         }
 
+        public ActionResult ProfilesPartial()
+        {
+            var service = CreateHomeService();
+            var model = service.GetProfiles();
+
+            return View(model);
+        }
+
+        public ActionResult DaysPartial()
+        {
+            var service = CreateHomeService();
+            var model = service.GetDays();
+
+            return View(model);
+        }
 
         public ActionResult Contact()
         {

@@ -3,9 +3,21 @@
     padding-bottom: 20px;
     background-color:lavender;
 }
+body div{
+}
 
-#welcome{
-    background-color:aqua;
+.welcome{
+    /*text-align:center;*/
+    /*border:2px solid black;*/
+    padding:5px;
+}
+.welcome h1{
+    text-align:left;
+    font-size:xx-large;
+    text-decoration-style:double;
+}
+.todayis{
+    font-size:medium;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {

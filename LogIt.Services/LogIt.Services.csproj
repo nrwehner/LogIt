@@ -69,6 +69,7 @@
     <Compile Include="FoodDayService.cs" />
     <Compile Include="FoodDayItemService.cs" />
     <Compile Include="FoodItemService.cs" />
+    <Compile Include="HomeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDataService.cs" />
     <Compile Include="UserProfileService.cs" />

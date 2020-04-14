@@ -23,12 +23,12 @@
         <th>
             @Html.DisplayNameFor(model => model.FoodItemName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CreatedBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -52,12 +52,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.FoodItemName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit","FoodDayItem", new { id=item.FoodDayItemId },null) |
             @Html.ActionLink("Details", "Details","FoodDayItem", new { id=item.FoodDayItemId },null) |

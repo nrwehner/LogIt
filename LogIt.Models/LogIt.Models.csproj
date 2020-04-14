@@ -80,6 +80,8 @@
     <Compile Include="FoodItem\FoodItemDetail.cs" />
     <Compile Include="FoodItem\FoodItemEdit.cs" />
     <Compile Include="FoodItem\FoodItemListItem.cs" />
+    <Compile Include="Home\HomeIndex.cs" />
+    <Compile Include="Home\HomeObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserProfile\UserProfileCreate.cs" />
     <Compile Include="UserProfile\UserProfileDetail.cs" />

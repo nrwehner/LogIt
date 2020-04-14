@@ -15,7 +15,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    @Html.Partial("IndexPartial",Model.Object)
+    @Html.Partial("IndexPartial",model.UserId)
 }
 
 

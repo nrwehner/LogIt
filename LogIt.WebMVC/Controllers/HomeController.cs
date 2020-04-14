@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LogIt.Data;
+using LogIt.Services;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +13,17 @@ namespace LogIt.WebMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var service = CreateHomeService();
+            var model = service.GetModel();
+            PopulateFullName();
+            return View(model);
         }
+        public ActionResult IndexPartial()
+        {
+            PopulateFullName();
+            return PartialView();
+        }
+
 
         public ActionResult Contact()
         {
@@ -26,5 +38,34 @@ namespace LogIt.WebMVC.Controllers
 
             return View();
         }
+
+        private HomeService CreateHomeService()
+        {
+            string userId;
+            if (!User.Identity.IsAuthenticated)
+            {
+                userId = "";
+            }
+            else
+            {
+            userId = User.Identity.GetUserId();
+            }
+            var today = DateTime.Now;
+            var service = new HomeService(userId,today);
+            return service;
+        }
+
+        private void PopulateFullName()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                ViewBag.FullName = null;
+            }
+            else
+            {
+                ViewBag.FullName = new ApplicationDbContext().Users.Find(User.Identity.GetUserId()).FirstName + " " + new ApplicationDbContext().Users.Find(User.Identity.GetUserId()).LastName;
+            }
+        }
+
     }
 }

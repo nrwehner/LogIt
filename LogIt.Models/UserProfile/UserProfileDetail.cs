@@ -1,9 +1,7 @@
-﻿using System;
+﻿using LogIt.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogIt.Models.UserProfile
 {
@@ -13,7 +11,7 @@ namespace LogIt.Models.UserProfile
         public int UserProfileId { get; set; }
         [Display(Name = "User")]
         public string FullName { get; set; }
-        //public virtual ICollection<FoodDay> FoodDays { get; set; } //maybe use this at some point to create a field that can count how many days the profile has been used?
+        public IEnumerable<LogIt.Data.FoodDay> FoodDays { get; set; }
         [Display(Name = "Profile Title")]
         public string Title { get; set; }
         [Display(Name = "Profile Description")]

@@ -2,6 +2,7 @@
 
     <div class="welcome">
         <h1>Welcome, @ViewBag.FullName!</h1>
+        <h6>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added: @Model.FoodDayItems.Count()]</h6>
         <p class="lead">Let's get to work!</p>
         @if (Model.FoodDays.Count() < 1)
         {
@@ -14,8 +15,8 @@
                 <p>4. Build a Day</p>
                 <p>5. Add Food Items to your day</p>
                 <p>6. Add Food Items to our database that we don't already have</p>
-
-                <p>You do not have any profiles - let's get on that!</p>
+                <br />
+                <p><b>You do not have any profiles - let's get on that!</b></p>
                 <div class="partiallist">
                     <h2>Profiles</h2>
                     @Html.Partial("ProfilesPartial", Model.Profiles)
@@ -31,11 +32,12 @@
                 <p>5. Add Food Items to your day</p>
                 <p>6. Add Food Items to our database that we don't already have</p>
                 <br />
-                <p>You haven't made any days yet - let's get on that!</p>
-                <p>Pick one of your profiles below, or build a new profile to use:</p>
+                <p><b>You haven't made any days yet - let's get on that!</b></p>
+                <p><b>Pick one of your profiles below or build a new profile to make your day from:</b></p>
 
                 <div class="partiallist">
                     <h2>Profiles</h2>
+                    <br />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
@@ -46,23 +48,38 @@
         }
         @if (Model.FoodDays.Count() >= 1)
         {
-            @*<p><b>LOGIT Checklist:</b></p>
-            <p><strike>1. Check out our Food Database</strike></p>
-            <p><strike>2. Register Your Account</strike></p>
-            <p><strike>3. Build a Profile</strike></p>
-            <p><strike>4. Build a Day</strike></p>
-            <p>5. Add Food Items to your day</p>
-            <p>6. Add Food Items to our database that we don't already have</p>
-            <br />*@
-            <p>Pick one of your Days below to edit or build a new day from one of your profiles below</p>
-            <div class="partiallist">
-                <h2>Profiles</h2>
-                @Html.Partial("ProfilesPartial", Model.Profiles)
-            </div>
-            <div class="partiallist">
-                <h2>Days</h2>
-                @Html.Partial("DaysPartial", Model.FoodDays)
-            </div>
+            if (Model.FoodDayItems.Count() < 1)
+            {
+                <p><b>LOGIT Checklist:</b></p>
+                <p><strike>1. Check out our Food Database</strike></p>
+                <p><strike>2. Register Your Account</strike></p>
+                <p><strike>3. Build a Profile</strike></p>
+                <p><strike>4. Build a Day</strike></p>
+                <p>5. Add Food Items to your day</p>
+                <p>6. Add Food Items to our database that we don't already have</p>
+                <br />
+                <p><b>It's time to start adding Food Items to your days - pick a day below, and begin building out your food plan!</b></p>
+                <div class="partiallist">
+                    <h2>Profiles</h2>
+                    @Html.Partial("ProfilesPartial", Model.Profiles)
+                </div>
+                <div class="partiallist">
+                    <h2>Days</h2>
+                    @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
+            }
+            if (Model.FoodDayItems.Count() >= 1)
+            {
+                <p><b>Pick one of your Days below to edit or build a new day from one of your profiles below</b></p>
+                <div class="partiallist">
+                    <h2>Profiles</h2>
+                    @Html.Partial("ProfilesPartial", Model.Profiles)
+                </div>
+                <div class="partiallist">
+                    <h2>Days</h2>
+                    @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
+            }
         }
         @*A Partial for showing today if there is one
         @if(Model.Today ==(search in Model.FoodDays)(also need to just pull M,D,Y since DateTime is time too))*@

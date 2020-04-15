@@ -83,6 +83,7 @@ namespace LogIt.Services
                     FullName = _db.Users.Find(entity.Id).FirstName + " " + _db.Users.Find(entity.Id).LastName,
                     Title = entity.Title,
                     Description = entity.Description,
+                    FoodDays= entity.FoodDays,
                     CaloryTarget = entity.CaloryTarget,
                     CarbTarget = entity.CarbTarget,
                     FiberTarget = entity.FiberTarget,

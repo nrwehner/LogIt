@@ -26,7 +26,8 @@ namespace LogIt.Services
                         UserId = _userId,
                         Today = _today,
                         Profiles = new UserProfileService(_userId).GetUserProfiles(),
-                        FoodDays = new FoodDayService(_userId).GetFoodDays()
+                        FoodDays = new FoodDayService(_userId).GetFoodDays(),
+                        FoodDayItems = new FoodDayItemService(_userId).GetAllFoodDayItemsForUser()
                    }
                 };
         }

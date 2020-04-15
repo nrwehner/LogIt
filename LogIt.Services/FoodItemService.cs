@@ -76,6 +76,7 @@ namespace LogIt.Services
                     FoodItemId = entity.FoodItemId,
                     Name = entity.Name,
                     Description = entity.Description,
+                    FoodDayItems=entity.FoodDayItems,
                     Calories = entity.Calories,
                     CarbohydrateGrams = entity.CarbohydrateGrams,
                     FiberGrams = entity.FiberGrams,

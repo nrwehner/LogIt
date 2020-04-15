@@ -278,7 +278,7 @@
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\FoodItem\NonUserIndex.cshtml" />
     <Content Include="Views\FoodDayItem\CreateFoodDayItemFromFoodItem.cshtml" />
-    <Content Include="Views\FoodDay\IndexPartial_FoodDayItemListItem.cshtml" />
+    <Content Include="Views\FoodDay\IndexPartial_FoodDayItemListItem1.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

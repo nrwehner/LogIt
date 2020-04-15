@@ -14,6 +14,10 @@ body div{
     /*border:2px solid black;*/
     padding: 5px;
 }
+/*#actionline p{
+    text-decoration-style:double;
+    font-size:x-large;
+}*/
 .partiallist h2{
     text-align:center;
 }

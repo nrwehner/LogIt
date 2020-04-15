@@ -4,11 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete Goal Profile</h2>
+<h2>Are you sure you want to delete this Goal Profile?</h2>
 
-<h3>Are you sure you want to delete this Goal Profile [Add some kind of severe warning about potentially deleting food data that depends on this profile]?</h3>
+<h3>You have created @Model.FoodDays.Count() Day(s) with this Profile. Deleting the Profile will delete all of these days.</h3>
 <div>
-    <h4>UserProfileDetail</h4>
+    <h4>@Model.Title</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>

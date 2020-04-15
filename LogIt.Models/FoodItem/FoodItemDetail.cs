@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogIt.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace LogIt.Models
     {
         [Display(Name = "Item Id")]
         public int FoodItemId { get; set; }
-        //public virtual ICollection<FoodDayItem> FoodDayItems { get; set; } //maybe use this at some point to create a field that can count how many times the food item has been used?
+        public IEnumerable<FoodDayItem> FoodDayItems { get; set; }
         [Display(Name = "Item Name")]
         public string Name { get; set; }
         [Display(Name = "Item Description")]

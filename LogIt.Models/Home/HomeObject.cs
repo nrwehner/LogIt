@@ -14,6 +14,7 @@ namespace LogIt.Models.Home
         public DateTime Today { get; set; }
         public IEnumerable<UserProfileListItem> Profiles { get; set; }
         public IEnumerable<FoodDayListItem> FoodDays { get; set; }
+        public IEnumerable<FoodDayItemListItem> FoodDayItems { get; set; }
 
     }
 }

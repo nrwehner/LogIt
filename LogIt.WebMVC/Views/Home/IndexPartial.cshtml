@@ -2,7 +2,7 @@
 
     <div class="welcome">
         <h1>Welcome, @ViewBag.FullName!</h1>
-        <h6>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()]</h6>
+        <h4>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()]</h4>
         <p class="lead">Let's get to work!</p>
         @if (Model.FoodDays.Count() < 1)
         {

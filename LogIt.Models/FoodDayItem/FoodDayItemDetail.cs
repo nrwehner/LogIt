@@ -21,49 +21,49 @@ namespace LogIt.Models
         public string ProfileDescription { get; set; }
         [Display(Name = "Food Item Id")]
         public int FoodItemId { get; set; }
-        [Display(Name = "Food Item Name")]
+        [Display(Name = "Name")]
         public string FoodItemName { get; set; }
-        [Display(Name = "Food Item Calories")]
+        [Display(Name = "Cals")]
         public int ItemCalories { get; set; }
         [Display(Name = "Daily Total Calorie Target")]
         public int CalorieTarget { get; set; }
-        [Display(Name = "Calorie Proportion")]
+        [Display(Name = "Cal %")]
         public double CalorieWeight { get; set; }
-        [Display(Name = "Food Item Carbs")]
+        [Display(Name = "Carbs")]
         public double ItemCarbs { get; set; }
         [Display(Name = "Daily Total Carb Target")]
         public double CarbTarget { get; set; }
-        [Display(Name = "Carb Weight")]
+        [Display(Name = "Carb Wgt")]
         public double CarbWeight { get; set; }
-        [Display(Name = "Food Item Fiber")]
+        [Display(Name = "Fib")]
         public double ItemFiber { get; set; }
         [Display(Name = "Daily Total Fiber Target")]
         public double FiberTarget { get; set; }
-        [Display(Name = "Fiber Weight")]
+        [Display(Name = "Fib Wgt")]
         public double FiberWeight { get; set; }
-        [Display(Name = "Food Item Fat")]
+        [Display(Name = "Fat")]
         public double ItemFat { get; set; }
         [Display(Name = "Daily Total Fat Target")]
         public double FatTarget { get; set; }
-        [Display(Name = "Fat Weight")]
+        [Display(Name = "Fat Wgt")]
         public double FatWeight { get; set; }
-        [Display(Name = "Food Item Protein")]
+        [Display(Name = "Prot")]
         public double ItemProtein { get; set; }
         [Display(Name = "Daily Total Protein Target")]
         public double ProteinTarget { get; set; }
-        [Display(Name = "Protein Weight")]
+        [Display(Name = "Prot Wgt")]
         public double ProteinWeight { get; set; }
-        [Display(Name = "Food Item Sodium")]
+        [Display(Name = "Sod")]
         public int ItemSodium { get; set; }
         [Display(Name = "Daily Total Sodium Target")]
         public int SodiumTarget { get; set; }
-        [Display(Name = "Sodium Weight")]
+        [Display(Name = "Sod Wgt")]
         public double SodiumWeight { get; set; }
-        [Display(Name = "Food Item Potassium")]
+        [Display(Name = "Pot")]
         public int ItemPotassium { get; set; }
         [Display(Name = "Daily Total Potassium Target")]
         public int PotassiumTarget { get; set; }
-        [Display(Name = "Potassium Weight")]
+        [Display(Name = "Pot Wgt")]
         public double PotassiumWeight { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }

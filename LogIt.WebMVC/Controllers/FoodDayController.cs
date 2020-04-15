@@ -22,7 +22,13 @@ namespace LogIt.WebMVC.Controllers
 
             return View(model);
         }
-        
+
+        public ActionResult FoodDayItemsPartial(IEnumerable<FoodDayItemDetail> list)
+        {
+            return PartialView(list);
+        }
+
+
         //GET : FoodDay/Create
         public ActionResult Create()
         {

@@ -6,8 +6,23 @@
 body div{
 }
 
-#navbarmychanges{
-    background-color: black;
+#navbarmychanges {
+    background-color: white;
+    border: 2px solid white;
+    color: red;
+}
+#b-ground-font {
+    color: lavender;
+}
+#mypadding{
+    padding:4px;
+}
+#mytableborder{
+    border:5px solid black;
+}
+#navbarmychanges div {
+    background-color: white;
+    color: red;
 }
 .welcome {
     /*text-align:center;*/
@@ -18,8 +33,11 @@ body div{
     text-decoration-style:double;
     font-size:x-large;
 }*/
-.partiallist h2{
+.partiallist{
     text-align:center;
+}
+.partiallist p{
+    text-align: left;
 }
 .welcome h1{
     text-align:left;

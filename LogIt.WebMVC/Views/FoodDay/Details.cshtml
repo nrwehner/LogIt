@@ -5,114 +5,140 @@
     ViewBag.Title = "Details";
 }
 
-<div>
+<div class="partiallist">
 
     <h2>@Html.DisplayFor(model => model.Date) - @Html.DisplayFor(model => model.ProfileTitle)</h2>
-    <table>
-        <tr>
-            <th></th>
-            <th>Calories   </th>
-            <th>     |     </th>
-            <th>   Net Carbs   </th>
-            <th>     |     </th>
-            <th>   Fiber   </th>
-            <th>     |     </th>
-            <th>   Fat   </th>
-            <th>     |     </th>
-            <th>   Protein   </th>
-            <th>     |     </th>
-            <th>   Sodium   </th>
-            <th>     |     </th>
-            <th>   Potassium   </th>
-        </tr>
-        <tr>
-            <td><b>Targets:   </b></td>
-            <td>@Html.DisplayFor(model => model.ProfileCalories)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfileCarbs)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfileFiber)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfileFat)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfileProtein)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfileSodium)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProfilePotassium)</td>
-        </tr>
-        <tr>
-            <td><b>Actual:   </b></td>
-            <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.CarbsSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FiberSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FatSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProteinSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.SodiumSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
-        </tr>
-        <tr>
-            <td><b>Diff:   </b></td>
-            <td>@Html.DisplayFor(model => model.CaloriesDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.CarbsDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FiberDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FatDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProteinDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.SodiumDiff)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.PotassiumDiff)</td>
-        </tr>
-    </table>
+    <h3>@Model.ProfileDescription</h3>
+    <div id="mytableborder">
+        <table class="table">
+            <tr>
+                <th id="b-ground-font">Name</th>
+                <th>Cals</th>
+                <th id="b-ground-font">Cal %</th>
+                <th>Carbs</th>
+                <th id="b-ground-font">Carb Wgt</th>
+                <th>Fib</th>
+                <th id="b-ground-font">Fib Wgt</th>
+                <th>Fat</th>
+                <th id="b-ground-font">Fat Wgt</th>
+                <th>Prot</th>
+                <th id="b-ground-font">Prot Wgt</th>
+                <th>Sod</th>
+                <th id="b-ground-font">Sod Wgt</th>
+                <th>Pot</th>
+                <th id="b-ground-font">Pot Wgt</th>
+                <th id="b-ground-font">Edit</th>
+                <th id="b-ground-font">Details</th>
+                <th id="b-ground-font">Delete</th>
+            </tr>
+            <tr>
+                <td><b>Targets</b></td>
+                <td>@Html.DisplayFor(model => model.ProfileCalories)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfileCarbs)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfileFiber)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfileFat)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfileProtein)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfileSodium)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProfilePotassium)</td>
+            </tr>
+            <tr>
+                <td><b>Actual</b></td>
+                <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.CarbsSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FiberSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FatSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProteinSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.SodiumSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
+            </tr>
+            <tr>
+                <td><b>Diff</b></td>
+                <td>@Html.DisplayFor(model => model.CaloriesDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.CarbsDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FiberDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FatDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProteinDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.SodiumDiff)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.PotassiumDiff)</td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<hr />
-
-<div>
+<div class="partiallist">
     @*@Html.ActionLink("Food Items", "IndexFoodDay","FoodDayItem", new { foodDayId = Model.FoodDayId },null)*@
     @*@Html.RenderAction("IndexFoodDay", "FoodDayItem",new { foodDayId=Model.FoodDayId })*@
-    @Html.Partial("IndexPartial_FoodDayItemListItem", Model.FoodDayItems)
+    @Html.Partial("FoodDayItemsPartial", Model.FoodDayItemDetails)
     @*new { foodDayId=Model.FoodDayId }*@
     @*@Html.RenderAction("Index", "FoodDayItem")*@
 </div>
 
-<hr />
+<br />
 
-<div>
-    <table>
-        <tr>
-            <td><b>Total:   </b></td>
-            <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.CarbsSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FiberSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.FatSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.ProteinSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.SodiumSum)</td>
-            <td></td>
-            <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
-        </tr>
-    </table>
-</div>
+@*<div class="partiallist">
+    <div id="mytableborder">
+        <table class="table" id="mytableformat">
+            <tr>
+                <th id="b-ground-font">Name</th>
+                <th>Cals</th>
+                <th id="b-ground-font">Cal %</th>
+                <th>Carbs</th>
+                <th id="b-ground-font">Carb Wgt</th>
+                <th>Fib</th>
+                <th id="b-ground-font">Fib Wgt</th>
+                <th>Fat</th>
+                <th id="b-ground-font">Fat Wgt</th>
+                <th>Prot</th>
+                <th id="b-ground-font">Prot Wgt</th>
+                <th>Sod</th>
+                <th id="b-ground-font">Sod Wgt</th>
+                <th>Pot</th>
+                <th id="b-ground-font">Pot Wgt</th>
+                <th id="b-ground-font">Edit</th>
+                <th id="b-ground-font">Details</th>
+                <th id="b-ground-font">Delete</th>
+            </tr>
+            <tr>
+                <td><b>Total:   </b></td>
+                <td>@Html.DisplayFor(model => model.CaloriesSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.CarbsSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FiberSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.FatSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.ProteinSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.SodiumSum)</td>
+                <td></td>
+                <td>@Html.DisplayFor(model => model.PotassiumSum)</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>*@
 
-<hr />
-
-<div>
-    <table>
+<div id="mytableborder">
+    <table class="table">
         <tr>
             <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
             <th>@Html.DisplayNameFor(model => model.CreatedUtc)</th>

@@ -12,8 +12,8 @@ namespace LogIt.Models
     {
         [Display(Name = "Food Day Id")]
         public int FoodDayId { get; set; }
-        public IEnumerable<FoodDayItem> FoodDayItems { get; set; } //maybe use this at some point to create a 
-        //field that can count how many food items are in the day or even potentially pull summary data (calories, carbs, etc) for the day?
+        public IEnumerable<FoodDayItem> FoodDayItems { get; set; }
+        public IEnumerable<FoodDayItemDetail> FoodDayItemDetails { get; set; }  
         public DateTime Date { get; set; }
         [Display(Name = "Goal Profile Id")]
         public int UserProfileId { get; set; }

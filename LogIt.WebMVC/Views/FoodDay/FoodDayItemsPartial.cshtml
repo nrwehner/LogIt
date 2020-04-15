@@ -1,0 +1,125 @@
+﻿@model IEnumerable<LogIt.Models.FoodDayItemDetail>
+
+<h3>Food Items</h3>
+<div id="mytableborder">
+    <table class="table" id="mytableformat">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCalories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CalorieWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCarbs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemFiber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FiberWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemProtein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProteinWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemSodium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SodiumWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemPotassium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PotassiumWeight)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemCalories)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CalorieWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemCarbs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarbWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemFiber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FiberWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemFat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemProtein)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProteinWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemSodium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SodiumWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemPotassium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PotassiumWeight)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "FoodDayItem", new { id = item.FoodDayItemId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "FoodDayItem", new { id = item.FoodDayItemId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "FoodDayItem", new { id = item.FoodDayItemId }, null)
+                </td>
+            </tr>
+
+        }
+    </table>
+    <div id="mypadding">
+        @if (Model.Count()>0)
+        {
+            @Html.ActionLink("Add Item", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = Model.FirstOrDefault().FoodDayId }, new { @class = "btn btn-primary btn-large" })
+        }
+    </div>
+</div>
+

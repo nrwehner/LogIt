@@ -2,7 +2,7 @@
 
     <div class="welcome">
         <h1>Welcome, @ViewBag.FullName!</h1>
-        <h6>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added: @Model.FoodDayItems.Count()]</h6>
+        <h6>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()]</h6>
         <p class="lead">Let's get to work!</p>
         @if (Model.FoodDays.Count() < 1)
         {
@@ -19,7 +19,13 @@
                 <p><b>You do not have any profiles - let's get on that!</b></p>
                 <div class="partiallist">
                     <h2>Profiles</h2>
+                    <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
+                </div>
+                <div class="partiallist">
+                    <h2>Food Items</h2>
+                    <hr />
+                    @Html.Partial("FoodItemsPartial", Model.FoodItems)
                 </div>
             }
             if (Model.Profiles.Count() >= 1)
@@ -37,12 +43,18 @@
 
                 <div class="partiallist">
                     <h2>Profiles</h2>
-                    <br />
+                    <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
                     <h2>Days</h2>
+                    <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
+                <div class="partiallist">
+                    <h2>Food Items</h2>
+                    <hr />
+                    @Html.Partial("FoodItemsPartial", Model.FoodItems)
                 </div>
             }
         }
@@ -61,11 +73,18 @@
                 <p><b>It's time to start adding Food Items to your days - pick a day below, and begin building out your food plan!</b></p>
                 <div class="partiallist">
                     <h2>Profiles</h2>
+                    <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
                     <h2>Days</h2>
+                    <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
+                <div class="partiallist">
+                    <h2>Food Items</h2>
+                    <hr />
+                    @Html.Partial("FoodItemsPartial", Model.FoodItems)
                 </div>
             }
             if (Model.FoodDayItems.Count() >= 1)
@@ -73,11 +92,18 @@
                 <p><b>Pick one of your Days below to edit or build a new day from one of your profiles below</b></p>
                 <div class="partiallist">
                     <h2>Profiles</h2>
+                    <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
                     <h2>Days</h2>
+                    <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
+                </div>
+                <div class="partiallist">
+                    <h2>Food Items</h2>
+                    <hr />
+                    @Html.Partial("FoodItemsPartial",Model.FoodItems)
                 </div>
             }
         }

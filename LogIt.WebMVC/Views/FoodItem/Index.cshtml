@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<LogIt.Models.FoodItemListItem>
-@*// how can the edit at the bottom work if the model is FoodListItem and not FoodItem? How does it know to edit FoodItem?*@
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +7,7 @@
 <h2>Food Item List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create Food Item", "Create", "FoodItem", null, new { @class = "btn btn-primary btn-large" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -43,6 +42,9 @@
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -70,10 +72,17 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FoodItemId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.FoodItemId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FoodItemId }) |
-                @Html.ActionLink("Add This Item To A Day", "CreateFoodDayItemFromFoodItem", "FoodDayItem", new { itemId = item.FoodItemId }, null)
+                @Html.ActionLink("Add To A Day", "CreateFoodDayItemFromFoodItem", "FoodDayItem", new { itemId = item.FoodItemId }, new { @class = "btn btn-primary btn-large" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FoodItemId })
+                </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.FoodItemId })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.FoodItemId })
+                @*@Html.ActionLink("Add To A Day", "CreateFoodDayItemFromFoodItem", "FoodDayItem", new { itemId = item.FoodItemId }, null)*@
             </td>
         </tr>
     }

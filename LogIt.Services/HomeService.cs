@@ -27,7 +27,8 @@ namespace LogIt.Services
                         Today = _today,
                         Profiles = new UserProfileService(_userId).GetUserProfiles(),
                         FoodDays = new FoodDayService(_userId).GetFoodDays(),
-                        FoodDayItems = new FoodDayItemService(_userId).GetAllFoodDayItemsForUser()
+                        FoodDayItems = new FoodDayItemService(_userId).GetAllFoodDayItemsForUser(),
+                        FoodItems = new FoodItemService(_userId).GetFoodItems()
                    }
                 };
         }
@@ -41,6 +42,10 @@ namespace LogIt.Services
             return new FoodDayService(_userId).GetFoodDays();
         }
 
+        public IEnumerable<FoodItemListItem> GetItems()
+        {
+            return new FoodItemService(_userId).GetFoodItems();
+        }
 
         public HomeService(string userId,DateTime today)
         {

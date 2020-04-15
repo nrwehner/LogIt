@@ -28,23 +28,25 @@
         </th>*@
         <th></th>
         <th></th>
+        <th></th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        @*<td>
+<tr>
+    @*<td>
             @Html.DisplayFor(modelItem => item.UserProfileId)
         </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Summary)
-        </td>
-        @*<td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Summary)
+    </td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.IsStarred)
         </td>
         <td>
@@ -57,11 +59,15 @@
         @Html.ActionLink("Create Day", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, new { @class = "btn btn-primary btn-large" })
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", "UserProfile", new { id = item.UserProfileId }, null) |
-        @Html.ActionLink("Details", "Details", "UserProfile", new { id = item.UserProfileId }, null) |
+        @Html.ActionLink("Edit", "Edit", "UserProfile", new { id = item.UserProfileId }, null)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", "UserProfile", new { id = item.UserProfileId }, null)
+    </td>
+    <td>
         @Html.ActionLink("Delete", "Delete", "UserProfile", new { id = item.UserProfileId }, null)
     </td>
-    </tr>
+</tr>
 }
 
 </table>

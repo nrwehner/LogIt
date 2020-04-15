@@ -1,0 +1,73 @@
+﻿@model IEnumerable<LogIt.Models.FoodItemListItem>
+
+    <p>
+        @Html.ActionLink("Create Food Item", "Create", "FoodItem", null, new { @class = "btn btn-primary btn-large" })
+    </p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.FoodItemId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NutSum)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.FoodItemId)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NutSum)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.IsStarred)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
+    </td>
+    <td>
+        @Html.ActionLink("Add To A Day", "CreateFoodDayItemFromFoodItem", "FoodDayItem", new { itemId = item.FoodItemId }, new { @class = "btn btn-primary btn-large" })
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "FoodItem", new { id = item.FoodItemId }, null)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", "FoodItem", new { id = item.FoodItemId }, null)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", "FoodItem", new { id = item.FoodItemId }, null)
+    </td>
+</tr>
+}
+
+</table>

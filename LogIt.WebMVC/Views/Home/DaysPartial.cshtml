@@ -28,40 +28,48 @@
         </th>
         <th></th>
         <th></th>
+        <th></th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        @*<td>
+<tr>
+    @*<td>
             @Html.DisplayFor(modelItem => item.FoodDayId)
         </td>*@
-        @*<td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.DateProfile)
         </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Add A Food Item", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, new { @class = "btn btn-primary btn-large" })
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", "FoodDay", new { id = item.FoodDayId }, null) |
-            @Html.ActionLink("Details", "Details", "FoodDay", new { id = item.FoodDayId }, null) |
-            @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null)
-        </td>
-    </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
+    </td>
+    <td>
+        @Html.ActionLink("Add A Food Item", "CreateFoodDayItemFromFoodDay", "FoodDayItem", new { dayId = item.FoodDayId }, new { @class = "btn btn-primary btn-large" })
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "FoodDay", new { id = item.FoodDayId }, null)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", "FoodDay", new { id = item.FoodDayId }, null)
+    </td>
+
+    <td>
+        @Html.ActionLink("Delete", "Delete", "FoodDay", new { id = item.FoodDayId }, null)
+    </td>
+
+</tr>
 }
 
 </table>

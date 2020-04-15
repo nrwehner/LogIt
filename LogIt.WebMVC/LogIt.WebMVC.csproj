@@ -285,6 +285,7 @@
     <Content Include="Views\Home\IndexPartial.cshtml" />
     <Content Include="Views\Home\ProfilesPartial.cshtml" />
     <Content Include="Views\Home\DaysPartial.cshtml" />
+    <Content Include="Views\Home\FoodItemsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

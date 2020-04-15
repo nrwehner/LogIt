@@ -40,6 +40,14 @@ namespace LogIt.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult FoodItemsPartial()
+        {
+            var service = CreateHomeService();
+            var model = service.GetItems();
+
+            return View(model);
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

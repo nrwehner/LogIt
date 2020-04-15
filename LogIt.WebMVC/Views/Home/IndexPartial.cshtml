@@ -1,8 +1,7 @@
 ﻿@model LogIt.Models.Home.HomeObject
 
     <div class="welcome">
-        <h1>Welcome, @ViewBag.FullName!</h1>
-        <h4>[CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()]</h4>
+        <h4><b>CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()</b></h4>
         <p class="lead">Let's get to work!</p>
         @if (Model.FoodDays.Count() < 1)
         {
@@ -16,13 +15,15 @@
                 <p>5. Add Food Items to your day</p>
                 <p>6. Add Food Items to our database that we don't already have</p>
                 <br />
-                <p><b>You do not have any profiles - let's get on that!</b></p>
+                <p class="lead">You do not have any profiles - let's get on that!</p>
                 <div class="partiallist">
+                    <hr />
                     <h2>Profiles</h2>
                     <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Food Items</h2>
                     <hr />
                     @Html.Partial("FoodItemsPartial", Model.FoodItems)
@@ -38,20 +39,23 @@
                 <p>5. Add Food Items to your day</p>
                 <p>6. Add Food Items to our database that we don't already have</p>
                 <br />
-                <p><b>You haven't made any days yet - let's get on that!</b></p>
+                <p class="lead">You haven't made any days yet - let's get on that!</p>
                 <p><b>Pick one of your profiles below or build a new profile to make your day from:</b></p>
 
                 <div class="partiallist">
+                    <hr />
                     <h2>Profiles</h2>
                     <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Days</h2>
                     <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Food Items</h2>
                     <hr />
                     @Html.Partial("FoodItemsPartial", Model.FoodItems)
@@ -70,18 +74,22 @@
                 <p>5. Add Food Items to your day</p>
                 <p>6. Add Food Items to our database that we don't already have</p>
                 <br />
-                <p><b>It's time to start adding Food Items to your days - pick a day below, and begin building out your food plan!</b></p>
+                <p class="lead">It's time to start adding Food Items to your days!</p>
+                <p><b>Pick a day below, and begin building out your food plan!</b></p>
                 <div class="partiallist">
+                    <hr />
                     <h2>Profiles</h2>
                     <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Days</h2>
                     <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Food Items</h2>
                     <hr />
                     @Html.Partial("FoodItemsPartial", Model.FoodItems)
@@ -89,21 +97,24 @@
             }
             if (Model.FoodDayItems.Count() >= 1)
             {
-                <p><b>Pick one of your Days below to edit or build a new day from one of your profiles below</b></p>
+                <p class="lead">Pick one of your Days below to edit or build a new day from one of your profiles below</p>
                 <div class="partiallist">
+                    <hr />
                     <h2>Profiles</h2>
                     <hr />
                     @Html.Partial("ProfilesPartial", Model.Profiles)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Days</h2>
                     <hr />
                     @Html.Partial("DaysPartial", Model.FoodDays)
                 </div>
                 <div class="partiallist">
+                    <hr />
                     <h2>Food Items</h2>
                     <hr />
-                    @Html.Partial("FoodItemsPartial",Model.FoodItems)
+                    @Html.Partial("FoodItemsPartial", Model.FoodItems)
                 </div>
             }
         }

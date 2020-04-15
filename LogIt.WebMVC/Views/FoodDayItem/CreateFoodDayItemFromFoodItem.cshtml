@@ -4,7 +4,7 @@
     ViewBag.Title = "CreateFoodDayItemFromFoodItem";
 }
 
-<h2>Create A Food Day Item From FoodItem</h2>
+<h2>Add Food Item</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>FoodDayItemCreate</h4>
+    <h4>Pick A Day To Add This Food Item To</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.FoodItemId)

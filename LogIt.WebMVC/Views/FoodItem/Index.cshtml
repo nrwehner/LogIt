@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Food Item List</h2>
-
-<p>
-    @Html.ActionLink("Create Food Item", "Create", "FoodItem", null, new { @class = "btn btn-primary btn-large" })
-</p>
+<h2>Food Items</h2>
+<hr />
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -21,8 +18,8 @@
 <table class="table">
     <tr>
         @*<th>
-            @Html.DisplayNameFor(model => model.FoodItemId)
-        </th>*@
+                @Html.DisplayNameFor(model => model.FoodItemId)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -51,8 +48,8 @@
     {
         <tr>
             @*<td>
-                @Html.DisplayFor(modelItem => item.FoodItemId)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.FoodItemId)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -76,7 +73,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.FoodItemId })
-                </td>
+            </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.FoodItemId })
             </td>
@@ -88,6 +85,9 @@
     }
 
 </table>
+<p>
+    @Html.ActionLink("Create Food Item", "Create", "FoodItem", null, new { @class = "btn btn-primary btn-large" })
+</p>
 
 @section scripts {
     <script language="javascript" type="text/javascript">

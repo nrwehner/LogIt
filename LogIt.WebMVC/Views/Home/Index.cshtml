@@ -3,41 +3,57 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<span class="todayis">Today is @Model.Object.Today</span>
+<hr />
+<div>
+    <h2 id="todayis">Today is @Model.Object.Today</h2>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 id="welcome">Welcome, New User!</h1>
+    }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1>Welcome, @ViewBag.FullName!</h1>
+    }
+</div>
+<hr />
+@*<div class="containermine">
+    <img src="~/Content/Assets/foodimage.jpg" alt="image" style="width:50%;">
+    <div id="centeredmine">LOGIT</div>
+</div>*@
+
 @if (!User.Identity.IsAuthenticated)
 {
-<div class="welcome">
-    <h1>Welcome, New User!</h1>
-    <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
-    @*<p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>*@
-    <p><b>LOGIT Checklist:</b></p>
-    <p>1. @Html.ActionLink("Check out our Food Database", "NonUserIndex", "FoodItem", null, null) and get a feel for what we're payting attention to</p>
-    <p>2. @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
-    <p>3. Build a Profile</p>
-    <p>4. Build a Day</p>
-    <p>5. Add Food Items to your day</p>
-    <p>6. Add Food Items to our database that we don't already have</p>
+    <div>
+        <p class="lead">LOGIT is a food tracking application that helps you get a baseline for your current eating habits and potentially plan for a change.</p>
+        @*<p>@Html.ActionLink("Learn How It Works!", "Learn", "Home", null, new { @class = "btn btn-primary btn-large" })</p>*@
+        <p><b>LOGIT Checklist:</b></p>
+        <p>1. @Html.ActionLink("Check out our Food Database", "NonUserIndex", "FoodItem", null, new { @class = "btn btn-primary btn-large" }) and get a feel for what we're payting attention to</p>
+        <p>2. @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
+        <p>3. Build a Profile</p>
+        <p>4. Build a Day</p>
+        <p>5. Add Food Items to your day</p>
+        <p>6. Add Food Items to our database that we don't already have</p>
 
-    @*<div class="partiallist">
-            <h2>Food Items</h2>
-            <hr />
-            @Html.Partial("FoodItemsPartialNonUser", Model.Object.FoodItems)
-        </div>*@
-</div>
+        @*<div class="partiallist">
+                <h2>Food Items</h2>
+                <hr />
+                @Html.Partial("FoodItemsPartialNonUser", Model.Object.FoodItems)
+            </div>*@
+    </div>
 
     @*<div class="col-md-4">
-        <h2>Register an Account</h2>
-        <p>
-            Join today and begin your food awareness journey!
-        </p>
-        <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
-        <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-large" })</@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })p>
-    </div>
-    <div class="col-md-4">
-        <h2>Explore Our Food Database</h2>
-        <p>See what food items are currently available to log!</p>
-        <p>@Html.ActionLink("Food Items", "NonUserIndex", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
-    </div>*@
+            <h2>Register an Account</h2>
+            <p>
+                Join today and begin your food awareness journey!
+            </p>
+            <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
+            <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-large" })</@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-large" })p>
+        </div>
+        <div class="col-md-4">
+            <h2>Explore Our Food Database</h2>
+            <p>See what food items are currently available to log!</p>
+            <p>@Html.ActionLink("Food Items", "NonUserIndex", "FoodItem", null, new { @class = "btn btn-primary btn-large" })</p>
+        </div>*@
 }
 @if (User.Identity.IsAuthenticated)
 {

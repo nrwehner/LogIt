@@ -5,10 +5,7 @@
 }
 
 <h2>Your Profiles</h2>
-
-<p>
-    @Html.ActionLink("Build New Profile", "Create", "UserProfile", null, new { @class = "btn btn-primary btn-large" })
-</p>
+<hr />
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -21,8 +18,8 @@
 <table class="table">
     <tr>
         @*<th>
-            @Html.DisplayNameFor(model => model.UserProfileId)
-        </th>*@
+                @Html.DisplayNameFor(model => model.UserProfileId)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -34,8 +31,8 @@
         </th>
 
         @*<th>
-            @Html.DisplayNameFor(model => model.IsStarred)
-        </th>*@
+                @Html.DisplayNameFor(model => model.IsStarred)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
         </th>
@@ -50,68 +47,71 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.UserProfileId)
-        </td>*@
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Summary)
-    </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.IsStarred)
-        </td>*@
-    <td>
-        @Html.DisplayFor(modelItem => item.CreatedBy)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CreatedUtc)
-    </td>
-    <td>
-        @Html.ActionLink("Create Day From Profile", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, new { @class = "btn btn-primary btn-large" })
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileId })
-    </td>
-    <td>
-        @Html.ActionLink("Details", "Details", new { id = item.UserProfileId })
-    </td>
-    <td>
-        @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId })
-    </td>
-</tr>
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UserProfileId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IsStarred)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Create Day From Profile", "CreateFoodDayFromProfile", "FoodDay", new { profId = item.UserProfileId }, new { @class = "btn btn-primary btn-large" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileId })
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.UserProfileId })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileId })
+            </td>
+        </tr>
     }
 
 </table>
+<p>
+    @Html.ActionLink("Build New Profile", "Create", "UserProfile", null, new { @class = "btn btn-primary btn-large" })
+</p>
 
 @section scripts {
     <script language="javascript" type="text/javascript">
-     $(document).ready(function () {
-         $("i[data-toggle='star']")
-             .css({ "cursor": "pointer" })
-             .click(function (e) {
-                 var target = $(e.target);
-                 var noteId = target.attr("data-id");
-                 var starSet = target.hasClass("glyphicon-star");
+        $(document).ready(function () {
+            $("i[data-toggle='star']")
+                .css({ "cursor": "pointer" })
+                .click(function (e) {
+                    var target = $(e.target);
+                    var noteId = target.attr("data-id");
+                    var starSet = target.hasClass("glyphicon-star");
 
-                 $.ajax({
-                     method: starSet ? "DELETE" : "PUT",
-                     url: "/api/note/" + noteId + "/star",
-                     data: null
-                 })
-                 .done(function (r) {
-                     target.removeClass();
-                     target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
-                 })
-                 .fail(function (r) {
-                     alert("Failed to change star status");
-                 });
-             });
-     });
+                    $.ajax({
+                        method: starSet ? "DELETE" : "PUT",
+                        url: "/api/note/" + noteId + "/star",
+                        data: null
+                    })
+                        .done(function (r) {
+                            target.removeClass();
+                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                        })
+                        .fail(function (r) {
+                            alert("Failed to change star status");
+                        });
+                });
+        });
     </script>
 }

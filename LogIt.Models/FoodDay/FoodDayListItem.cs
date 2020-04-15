@@ -18,6 +18,9 @@ namespace LogIt.Models
         public string Title { get; set; }
         [Display(Name = "Goal Profile Description")]
         public string Description { get; set; }
+        [Display(Name = "Nutritional Summary")]
+        public FoodDayDetail FoodDayDetails { get; set; }
+        public string Summary { get; set; }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         [Display(Name = "Created")]

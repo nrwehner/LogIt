@@ -11,10 +11,10 @@ namespace LogIt.Models.Home
     public class HomeObject
     {
         public string UserId { get; set; }
-        public DateTime Today { get; set; }
         public IEnumerable<UserProfileListItem> Profiles { get; set; }
         public IEnumerable<FoodDayListItem> FoodDays { get; set; }
         public IEnumerable<FoodDayItemListItem> FoodDayItems { get; set; }
         public IEnumerable<FoodItemListItem> FoodItems { get; set; }
+        public IEnumerable<FoodDayDetail> TodayDetailItems { get; set; }
     }
 }

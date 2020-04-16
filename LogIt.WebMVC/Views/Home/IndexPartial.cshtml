@@ -1,8 +1,25 @@
 ﻿@model LogIt.Models.Home.HomeObject
 
-    <div class="welcome">
+    <div>
         <h4><b>CURRENT PROGRESS: Profiles: @Model.Profiles.Count(), Days: @Model.FoodDays.Count(), Total Food Items Added To Days: @Model.FoodDayItems.Count()</b></h4>
         <p class="lead">Let's get to work!</p>
+        @if (Model.TodayDetailItems.Count() == 0)
+        {
+            <p class="lead">You do not have a day for today yet - let's get on that!</p>
+        }
+        @if (Model.TodayDetailItems.Count() == 1)
+        {
+            <p class="lead">Take a look at your progress for today!</p>
+            @Html.Partial("TodayDetailPartial", Model.TodayDetailItems.First())
+            <hr />
+        }
+        @if (Model.TodayDetailItems.Count() > 1)
+        {
+            <p class="lead">You have made multiple days for today - let's take a look at your progress on the first one!</p>
+            @Html.Partial("TodayDetailPartial", Model.TodayDetailItems.First())
+            <hr />
+        }
+
         @if (Model.FoodDays.Count() < 1)
         {
             if (Model.Profiles.Count() < 1)

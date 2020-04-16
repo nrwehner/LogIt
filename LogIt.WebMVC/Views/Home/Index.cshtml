@@ -5,7 +5,7 @@
 }
 <hr />
 <div>
-    <h2 id="todayis">Today is @Model.Object.Today</h2>
+    <h2 id="todayis">Today is @DateTime.Now.ToLongDateString()</h2>
     @if (!User.Identity.IsAuthenticated)
     {
         <h1 id="welcome">Welcome, New User!</h1>

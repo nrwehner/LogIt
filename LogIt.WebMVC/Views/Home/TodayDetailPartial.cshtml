@@ -1,10 +1,5 @@
 ﻿@model LogIt.Models.FoodDayDetail
 
-
-@{
-    ViewBag.Title = "Details";
-}
-
 <div class="partiallist">
 
     <h2>@Html.DisplayFor(model => model.Date) - @Html.DisplayFor(model => model.ProfileTitle)</h2>
@@ -176,6 +171,6 @@
 </div>
 <p>
     @*//maybe a an if statement here to only display edit if you created it, and also a duplicate option?*@
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FoodDayId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit","Foodday", new { id = Model.FoodDayId },null) |*@
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>

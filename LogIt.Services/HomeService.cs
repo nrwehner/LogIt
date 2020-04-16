@@ -14,22 +14,36 @@ namespace LogIt.Services
     {
         private ApplicationDbContext _db = new ApplicationDbContext();
         private readonly string _userId;
-        private readonly DateTime _today;
 
         public HomeIndex GetModel()
         {
+            IEnumerable<FoodDayListItem> foodDays = new FoodDayService(_userId).GetFoodDays();
+            List<int> dayArray = new List<int>();
+            List<FoodDayDetail> dayDetList = new List<FoodDayDetail>();
+            foreach(FoodDayListItem day in foodDays)
+            {
+                if (DateTime.Now.ToShortDateString() == day.Date.ToShortDateString())
+                {
+                    dayArray.Add(day.FoodDayId);
+                }
+            }
+            foreach(int i in dayArray)
+            {
+            dayDetList.Add(new FoodDayService(_userId).GetFoodDayById(i));
+            }
+
             return
                 new HomeIndex
                 {
                     Object = new HomeObject
                     {
                         UserId = _userId,
-                        Today = _today,
                         Profiles = new UserProfileService(_userId).GetUserProfiles(),
-                        FoodDays = new FoodDayService(_userId).GetFoodDays(),
+                        FoodDays = foodDays,
                         FoodDayItems = new FoodDayItemService(_userId).GetAllFoodDayItemsForUser(),
-                        FoodItems = new FoodItemService(_userId).GetFoodItems()
-                   }
+                        FoodItems = new FoodItemService(_userId).GetFoodItems(),
+                        TodayDetailItems = dayDetList
+                    }
                 };
         }
 
@@ -47,10 +61,14 @@ namespace LogIt.Services
             return new FoodItemService(_userId).GetFoodItems();
         }
 
-        public HomeService(string userId,DateTime today)
+        public FoodDayDetail GetToday(int id)
+        {
+            return new FoodDayService(_userId).GetFoodDayById(id);
+        }
+
+        public HomeService(string userId)
         {
             _userId = userId;
-            _today = today;
         }
     }
 }

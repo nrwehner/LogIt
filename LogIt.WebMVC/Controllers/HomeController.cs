@@ -47,6 +47,13 @@ namespace LogIt.WebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult TodayDetailPartial(int id)
+        {
+            var service = CreateHomeService();
+            var model = service.GetToday(id);
+
+            return View(model);
+        }
 
         public ActionResult Contact()
         {
@@ -73,8 +80,7 @@ namespace LogIt.WebMVC.Controllers
             {
             userId = User.Identity.GetUserId();
             }
-            var today = DateTime.Now;
-            var service = new HomeService(userId,today);
+            var service = new HomeService(userId);
             return service;
         }
 

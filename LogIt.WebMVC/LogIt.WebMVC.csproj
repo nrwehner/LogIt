@@ -288,6 +288,8 @@
     <Content Include="Views\Home\DaysPartial.cshtml" />
     <Content Include="Views\Home\FoodItemsPartial.cshtml" />
     <Content Include="Views\FoodDay\FoodDayItemsPartial.cshtml" />
+    <Content Include="Views\Home\TodayDetailPartial.cshtml" />
+    <Content Include="Views\Home\FoodDayItemsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
